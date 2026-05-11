@@ -1,0 +1,242 @@
+---
+import { Image } from 'astro:assets';
+
+const WA_LINK = 'https://wa.me/5535984566323?text=Ol%C3%A1!%20Vi%20seu%20perfil%20no%20Google%20e%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es%20sobre%20como%20funciona%20o%20seu%20acompanhamento%20nutricional.';
+
+const links = [
+  {
+    id: 'btn-links-wa',
+    label: 'Falar no WhatsApp',
+    href: WA_LINK,
+    tracking: 'click-whatsapp-links',
+    variant: 'primary',
+    external: true,
+  },
+  {
+    id: 'btn-links-site',
+    label: 'Acessar o site',
+    href: 'https://anaesternutricionista.com.br',
+    tracking: 'click-site-links',
+    variant: 'ghost',
+    external: false,
+  },
+  {
+    id: 'btn-links-instagram',
+    label: 'Instagram @nutri.anaester',
+    href: 'https://www.instagram.com/nutri.anaester',
+    tracking: 'click-instagram-links',
+    variant: 'ghost',
+    external: true,
+  },
+  {
+    id: 'btn-links-tiktok',
+    label: 'TikTok @nutri.anaester',
+    href: 'https://www.tiktok.com/@nutri.anaester',
+    tracking: 'click-tiktok-links',
+    variant: 'ghost',
+    external: true,
+  },
+  {
+    id: 'btn-links-facebook',
+    label: 'Facebook',
+    href: 'https://www.facebook.com/share/18c1xh9UEU/',
+    tracking: 'click-facebook-links',
+    variant: 'ghost',
+    external: true,
+  },
+];
+
+const currentYear = new Date().getFullYear();
+const GTM_ID = 'GTM-T3ZHXBH7';
+---
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+
+  <!-- GTM Head -->
+  <script is:inline define:vars={{ GTM_ID }}>
+    (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer',GTM_ID);
+  </script>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, follow" />
+  <meta name="theme-color" content="#436f3e" />
+
+  <title>Ana Ester Nutricionista | Links</title>
+  <meta name="description" content="Acompanhamento nutricional individualizado. Fale comigo e comece agora." />
+  <link rel="canonical" href="https://anaesternutricionista.com.br/links" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+  <!-- Consent Mode v2 -->
+  <script is:inline>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('consent', 'default', {
+      'ad_storage': 'denied',
+      'analytics_storage': 'denied',
+      'wait_for_update': 500
+    });
+  </script>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500&family=DM+Sans:wght@300;400;500&display=swap"
+    rel="stylesheet"
+  />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'DM Sans', ui-sans-serif, system-ui, sans-serif;
+      font-weight: 300;
+      background: #f7f4f0;
+      color: #1d1d1c;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 48px 20px 32px;
+      -webkit-font-smoothing: antialiased;
+    }
+    .wrap { width: 100%; max-width: 400px; display: flex; flex-direction: column; align-items: center; flex: 1; }
+    .avatar {
+      width: 88px; height: 88px; border-radius: 50%;
+      background: #e5dfd6;
+      border: 2px solid #fff;
+      box-shadow: 0 2px 12px rgba(29,29,28,0.1);
+      overflow: hidden;
+      display: flex; align-items: center; justify-content: center;
+      color: #8a8a8a; font-size: 12px;
+      margin-bottom: 16px;
+    }
+    .name { font-family: 'Cormorant Garamond', Georgia, serif; font-size: 1.5rem; font-weight: 400; text-align: center; margin-bottom: 4px; }
+    .tagline { font-size: 0.85rem; color: #535353; text-align: center; margin-bottom: 36px; }
+    .links-col { width: 100%; display: flex; flex-direction: column; gap: 12px; }
+    .link-btn {
+      display: flex; align-items: center; justify-content: center;
+      width: 100%; padding: 14px 20px;
+      font-family: 'DM Sans', sans-serif; font-size: 0.92rem; font-weight: 500;
+      border-radius: 6px; text-decoration: none;
+      transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
+      cursor: pointer;
+    }
+    .link-btn:hover { transform: translateY(-2px); }
+    .link-btn:focus-visible { outline: 2px solid #436f3e; outline-offset: 2px; }
+    .link-btn.primary {
+      background: #436f3e; color: #fff;
+      box-shadow: 0 2px 12px rgba(67,111,62,0.25);
+    }
+    .link-btn.primary:hover { background: #2f5129; box-shadow: 0 4px 18px rgba(67,111,62,0.35); }
+    .link-btn.ghost {
+      background: #fff; color: #1d1d1c;
+      border: 1px solid #e5dfd6;
+    }
+    .link-btn.ghost:hover { border-color: #436f3e; color: #436f3e; }
+    .socials { display: flex; gap: 14px; margin-top: 28px; }
+    .social-link {
+      width: 36px; height: 36px; border: 1px solid #e5dfd6; border-radius: 6px;
+      display: flex; align-items: center; justify-content: center;
+      color: #535353; transition: border-color 0.2s, color 0.2s;
+      text-decoration: none;
+    }
+    .social-link:hover { border-color: #436f3e; color: #436f3e; }
+    .social-link:focus-visible { outline: 2px solid #436f3e; outline-offset: 2px; }
+    footer { margin-top: auto; padding-top: 32px; font-size: 0.75rem; color: #8a8a8a; text-align: center; }
+
+    /* Animações */
+    .link-item { opacity: 0; transform: translateY(20px); }
+    @keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
+    @media (prefers-reduced-motion: reduce) {
+      .link-item { opacity: 1; transform: none; animation: none; }
+    }
+  </style>
+</head>
+<body>
+  <!-- GTM noscript -->
+  <noscript>
+    <iframe src={`https://www.googletagmanager.com/ns.html?id=${GTM_ID}`} height="0" width="0" style="display:none;visibility:hidden"></iframe>
+  </noscript>
+
+  <main class="wrap">
+
+    <!-- Avatar -->
+    <div class="avatar link-item" style="animation: fadeUp 0.5s 0s ease both">
+      <!-- Substituir pelo <img> real quando disponível -->
+      <span>[Foto]</span>
+    </div>
+
+    <!-- Nome -->
+    <h1 class="name link-item" style="animation: fadeUp 0.5s 0.06s ease both">Ana Ester</h1>
+    <p class="tagline link-item" style="animation: fadeUp 0.5s 0.12s ease both">
+      Nutricionista · Poços de Caldas
+    </p>
+
+    <!-- Links -->
+    <nav class="links-col" aria-label="Links principais">
+      {links.map((link, i) => (
+        <a
+          href={link.href}
+          id={link.id}
+          data-tracking={link.tracking}
+          data-section="links"
+          class={`link-btn ${link.variant} link-item`}
+          style={`animation: fadeUp 0.5s ${0.18 + i * 0.08}s ease both`}
+          {...link.external ? { target: '_blank', rel: 'noopener noreferrer' } : {}}
+        >
+          {link.label}
+        </a>
+      ))}
+    </nav>
+
+    <!-- Redes sociais -->
+    <div class="socials link-item" style={`animation: fadeUp 0.5s ${0.18 + links.length * 0.08}s ease both`}>
+      <a href="https://www.instagram.com/nutri.anaester" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Instagram">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+          <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+          <circle cx="12" cy="12" r="4"/>
+          <circle cx="17.5" cy="6.5" r="0.8" fill="currentColor"/>
+        </svg>
+      </a>
+      <a href="https://www.tiktok.com/@nutri.anaester" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="TikTok">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.27 6.27 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.75a8.2 8.2 0 0 0 4.78 1.52V6.83a4.85 4.85 0 0 1-1.01-.14z"/>
+        </svg>
+      </a>
+      <a href="https://www.facebook.com/share/18c1xh9UEU/" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Facebook">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+        </svg>
+      </a>
+    </div>
+
+  </main>
+
+  <footer>© {currentYear} Ana Ester Messias Lima Martins</footer>
+
+  <script is:inline>
+    // GTM — view_links
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({ event: 'view_links', page_type: 'links_page' });
+
+    // Rastreamento de cliques
+    document.addEventListener('click', function(e) {
+      var el = e.target.closest('[data-tracking]');
+      if (!el) return;
+      var action = el.getAttribute('data-tracking');
+      var section = el.getAttribute('data-section');
+      window.dataLayer.push({ event: 'link_click', click_action: action, click_section: section });
+      if (action && action.includes('whatsapp')) {
+        window.dataLayer.push({ event: 'contato_wpp', click_action: action, click_section: section });
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,49 @@
+---
+import Button from '../global/Button.astro';
+
+const WA_LINK = 'https://wa.me/5535984566323?text=Ol%C3%A1!%20Vi%20seu%20perfil%20no%20Google%20e%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es%20sobre%20como%20funciona%20o%20seu%20acompanhamento%20nutricional.';
+---
+
+<section
+  id="cta-final"
+  class="bg-primary section-py"
+  aria-labelledby="cta-heading"
+>
+  <div class="container-content text-center">
+    <p class="label-tag text-white/60 mb-5" data-animate>Próximo passo</p>
+
+    <h2
+      id="cta-heading"
+      class="font-serif text-display-lg text-white leading-snug max-w-xl mx-auto mb-5"
+      data-animate
+    >
+      Pronto para começar de forma certa?
+    </h2>
+
+    <p class="font-sans text-base text-white/75 max-w-md mx-auto mb-10" data-animate>
+      Me manda uma mensagem agora. Vou te contar como funciona o acompanhamento e como podemos começar juntos.
+    </p>
+
+    <div data-animate>
+      <a
+        href={WA_LINK}
+        target="_blank"
+        rel="noopener noreferrer"
+        id="btn-cta-final-wa"
+        data-tracking="click-whatsapp-cta-final"
+        data-section="cta-final"
+        class="inline-flex items-center justify-center gap-3 bg-white text-primary font-sans font-medium text-base px-8 py-4 rounded-sm hover:bg-white/90 hover:scale-[1.03] transition-all duration-200 shadow-float focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+      >
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="#25D366" aria-hidden="true">
+          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+          <path d="M12 0C5.373 0 0 5.373 0 12c0 2.075.528 4.025 1.456 5.732L0 24l6.458-1.427C8.137 23.497 10.025 24 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.86 0-3.629-.476-5.182-1.314l-.371-.218-3.831.847.86-3.726-.24-.386A9.927 9.927 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/>
+        </svg>
+        Falar com Ana Ester agora
+      </a>
+    </div>
+
+    <p class="font-sans text-sm text-white/45 mt-5" data-animate>
+      Atendimento presencial em Poços de Caldas e online para todo o Brasil
+    </p>
+  </div>
+</section>

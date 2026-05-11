@@ -1,0 +1,34 @@
+---
+interface Props {
+  icon: string; // SVG path string
+  title: string;
+  description: string;
+}
+
+const { icon, title, description } = Astro.props;
+---
+
+<div
+  class="bg-background border border-border rounded p-7 flex flex-col gap-4 hover:-translate-y-1 hover:shadow-card transition-all duration-200 cursor-default"
+  data-animate-item
+>
+  <div class="w-10 h-10 rounded bg-primary/10 flex items-center justify-center shrink-0">
+    <svg
+      width="20"
+      height="20"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="1.5"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      class="text-primary"
+      aria-hidden="true"
+      set:html={icon}
+    />
+  </div>
+  <div>
+    <h3 class="font-serif text-display-sm text-text-main mb-1.5">{title}</h3>
+    <p class="font-sans text-sm text-text-soft leading-relaxed">{description}</p>
+  </div>
+</div>

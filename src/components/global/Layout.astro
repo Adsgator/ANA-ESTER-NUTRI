@@ -1,0 +1,233 @@
+---
+import GTM from './GTM.astro';
+import Header from './Header.astro';
+import Footer from './Footer.astro';
+import WhatsAppFloat from './WhatsAppFloat.astro';
+import CookieBanner from '../islands/CookieBanner';
+import { Analytics } from '@vercel/analytics/astro';
+import { SpeedInsights } from '@vercel/speed-insights/astro';
+import '@fontsource/dm-sans/300.css';
+import '@fontsource/dm-sans/400.css';
+import '@fontsource/dm-sans/500.css';
+import '../styles/global.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+  keywords?: string;
+  ogTitle?: string;
+  ogDescription?: string;
+  canonical?: string;
+  noindex?: boolean;
+  schema?: object;
+}
+
+const {
+  title = 'Nutricionista em Poços de Caldas | Ana Ester',
+  description = 'Acompanhamento nutricional individualizado em Poços de Caldas. Plano alimentar real, sem restrições extremas. Atendo presencial e online. Fale comigo agora.',
+  keywords = 'nutricionista poços de caldas, acompanhamento nutricional, plano alimentar individualizado, reeducação alimentar, nutricionista online, emagrecimento saudável, nutrição humanizada',
+  ogTitle = 'Ana Ester Nutricionista | Poços de Caldas',
+  ogDescription = 'Nutrição humanizada, individualizada e com foco na sua vida real. Sem planos genéricos. Atendo presencial e online.',
+  canonical = 'https://anaesternutricionista.com.br',
+  noindex = false,
+  schema,
+} = Astro.props;
+
+const GTM_ID = 'GTM-T3ZHXBH7';
+
+const defaultSchema = {
+  "@context": "https://schema.org",
+  "@type": "Nutritionist",
+  "name": "Ana Ester Messias Lima Martins",
+  "description": "Acompanhamento nutricional individualizado em Poços de Caldas. Nutrição humanizada, individualizada e com foco na vida real.",
+  "url": "https://anaesternutricionista.com.br",
+  "telephone": "+55-35-98456-6323",
+  "email": "anaesternutricionista@gmail.com",
+  "openingHours": ["Mo-Fr 09:00-18:00", "Sa 09:30-15:30"],
+  "sameAs": [
+    "https://www.instagram.com/nutri.anaester",
+    "https://www.tiktok.com/@nutri.anaester",
+    "https://www.facebook.com/share/18c1xh9UEU/"
+  ]
+};
+
+const finalSchema = schema || defaultSchema;
+---
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+
+  <!-- GTM Head — imediatamente após charset -->
+  <GTM id={GTM_ID} />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#436f3e" />
+
+  <!-- SEO -->
+  <title>{title}</title>
+  <meta name="description" content={description} />
+  <meta name="keywords" content={keywords} />
+  {noindex && <meta name="robots" content="noindex, follow" />}
+  <link rel="canonical" href={canonical} />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content={ogTitle} />
+  <meta property="og:description" content={ogDescription} />
+  <meta property="og:url" content={canonical} />
+  <meta property="og:image" content="https://anaesternutricionista.com.br/og-image.webp" />
+  <meta property="og:locale" content="pt_BR" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+  <!-- Google Fonts — Cormorant Garamond -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    rel="preload"
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&display=swap"
+    as="style"
+    onload="this.onload=null;this.rel='stylesheet'"
+  />
+  <noscript>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&display=swap"
+      rel="stylesheet"
+    />
+  </noscript>
+
+  <!-- Preload hero image -->
+  <link
+    rel="preload"
+    href="/src/assets/images/hero-principal.webp"
+    as="image"
+    fetchpriority="high"
+  />
+
+  <!-- PWA Manifest -->
+  <link rel="manifest" href="/manifest.json" />
+
+  <!-- Schema.org JSON-LD -->
+  <script type="application/ld+json" set:html={JSON.stringify(finalSchema)} />
+
+  <!-- Google Consent Mode v2 — deve vir antes do GTM -->
+  <script is:inline>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('consent', 'default', {
+      'ad_storage': 'denied',
+      'analytics_storage': 'denied',
+      'ad_user_data': 'denied',
+      'ad_personalization': 'denied',
+      'wait_for_update': 500
+    });
+  </script>
+</head>
+<body>
+  <!-- GTM Body noscript — imediatamente após abertura do body -->
+  <noscript>
+    <iframe
+      src={`https://www.googletagmanager.com/ns.html?id=${GTM_ID}`}
+      height="0"
+      width="0"
+      style="display:none;visibility:hidden"
+    ></iframe>
+  </noscript>
+
+  <Header />
+
+  <main id="main" tabindex="-1">
+    <slot />
+  </main>
+
+  <Footer />
+  <WhatsAppFloat />
+
+  <CookieBanner
+    client:idle
+    gtmId={GTM_ID}
+  />
+
+  <Analytics />
+  <SpeedInsights />
+
+  <!-- Lenis + GSAP init -->
+  <script is:inline>
+    (function () {
+      // Lenis smooth scroll
+      const lenis = new window.Lenis({
+        duration: 1.2,
+        easing: function(t) { return Math.min(1, 1.001 - Math.pow(2, -10 * t)); },
+        smoothWheel: true,
+      });
+
+      // Integração GSAP ScrollTrigger
+      if (window.gsap && window.ScrollTrigger) {
+        gsap.registerPlugin(ScrollTrigger);
+        lenis.on('scroll', ScrollTrigger.update);
+        gsap.ticker.add(function(time) { lenis.raf(time * 1000); });
+        gsap.ticker.lagSmoothing(0);
+      }
+
+      // Smooth scroll para âncoras
+      document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
+        anchor.addEventListener('click', function(e) {
+          e.preventDefault();
+          var target = document.querySelector(this.getAttribute('href'));
+          if (target) lenis.scrollTo(target, { offset: -80 });
+        });
+      });
+    })();
+  </script>
+
+  <!-- GSAP ScrollTrigger — animações de entrada globais -->
+  <script is:inline>
+    (function () {
+      var prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (prefersReduced) return;
+
+      if (!window.gsap) return;
+      gsap.registerPlugin(ScrollTrigger);
+
+      gsap.utils.toArray('[data-animate]').forEach(function(el) {
+        gsap.fromTo(el,
+          { opacity: 0, y: 30 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.6,
+            ease: 'power2.out',
+            scrollTrigger: {
+              trigger: el,
+              start: 'top 85%',
+              toggleActions: 'play none none none',
+            }
+          }
+        );
+      });
+
+      gsap.utils.toArray('[data-animate-group]').forEach(function(group) {
+        var children = group.querySelectorAll('[data-animate-item]');
+        gsap.fromTo(children,
+          { opacity: 0, y: 30 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.6,
+            ease: 'power2.out',
+            stagger: 0.1,
+            scrollTrigger: {
+              trigger: group,
+              start: 'top 85%',
+              toggleActions: 'play none none none',
+            }
+          }
+        );
+      });
+    })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,107 @@
+---
+import Button from './Button.astro';
+import MobileMenu from '../islands/MobileMenu';
+
+const navLinks = [
+  { label: 'O Serviço', href: '#servico' },
+  { label: 'Como Funciona', href: '#como-funciona' },
+  { label: 'Sobre', href: '#sobre' },
+  { label: 'FAQ', href: '#faq' },
+];
+
+const WA_LINK = 'https://wa.me/5535984566323?text=Ol%C3%A1!%20Vi%20seu%20perfil%20no%20Google%20e%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es%20sobre%20como%20funciona%20o%20seu%20acompanhamento%20nutricional.';
+---
+
+<header
+  id="site-header"
+  class="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
+  data-header
+>
+  <div class="container-wide">
+    <div class="flex items-center justify-between h-16 md:h-20">
+
+      <!-- Logo -->
+      <a
+        href="#top"
+        class="flex flex-col leading-none focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary"
+        aria-label="Ana Ester Nutricionista — Ir para o topo"
+      >
+        <span class="font-serif text-xl md:text-2xl text-text-main tracking-tight">Ana Ester</span>
+        <span class="font-sans text-[0.65rem] uppercase tracking-[0.15em] text-text-soft font-medium">Nutricionista</span>
+      </a>
+
+      <!-- Nav Desktop -->
+      <nav class="hidden lg:flex items-center gap-8" aria-label="Navegação principal">
+        {navLinks.map((link) => (
+          <a
+            href={link.href}
+            class="font-sans text-sm text-text-soft hover:text-primary transition-colors duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+          >
+            {link.label}
+          </a>
+        ))}
+      </nav>
+
+      <!-- CTA Desktop -->
+      <div class="hidden lg:block">
+        <Button
+          label="Falar no WhatsApp"
+          href={WA_LINK}
+          variant="primary"
+          trackingId="btn-header-wa"
+          trackingAction="click-whatsapp-header"
+          trackingSection="header"
+          external
+          small
+        />
+      </div>
+
+      <!-- Mobile Menu Island -->
+      <MobileMenu
+        client:idle
+        links={navLinks}
+        ctaLabel="Falar no WhatsApp"
+        ctaHref={WA_LINK}
+      />
+    </div>
+  </div>
+</header>
+
+<script is:inline>
+  (function () {
+    var header = document.querySelector('[data-header]');
+    if (!header) return;
+
+    var lastScroll = 0;
+    var prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    function updateHeader() {
+      var scrollY = window.scrollY;
+
+      // Fundo ao passar de 80px
+      if (scrollY > 80) {
+        header.classList.add('bg-background/95', 'backdrop-blur-md', 'shadow-[0_1px_0_0_rgba(229,223,214,0.8)]');
+        header.classList.remove('bg-transparent');
+      } else {
+        header.classList.remove('bg-background/95', 'backdrop-blur-md', 'shadow-[0_1px_0_0_rgba(229,223,214,0.8)]');
+        header.classList.add('bg-transparent');
+      }
+
+      // Esconder ao scrollar para baixo, mostrar ao subir
+      if (!prefersReduced && scrollY > 300) {
+        if (scrollY > lastScroll) {
+          header.style.transform = 'translateY(-100%)';
+        } else {
+          header.style.transform = 'translateY(0)';
+        }
+      } else {
+        header.style.transform = 'translateY(0)';
+      }
+
+      lastScroll = scrollY;
+    }
+
+    window.addEventListener('scroll', updateHeader, { passive: true });
+    updateHeader();
+  })();
+</script>

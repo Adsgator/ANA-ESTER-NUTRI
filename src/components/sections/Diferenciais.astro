@@ -1,0 +1,64 @@
+---
+import SectionHeader from '../global/SectionHeader.astro';
+import FeatureCard from '../global/FeatureCard.astro';
+
+const diferenciais = [
+  {
+    icon: '<path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/>',
+    title: 'Totalmente individualizado',
+    description: 'Cada paciente recebe um plano alimentar exclusivo. Nada de protocolo genérico. Tudo pensado para a sua realidade e o que você precisa agora.',
+  },
+  {
+    icon: '<path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>',
+    title: 'Sem planos alimentares sofridos',
+    description: 'Reeducação alimentar não funciona com extremos. Meu foco é um ajuste saudável e sustentável, construído junto com você, no seu ritmo.',
+  },
+  {
+    icon: '<path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>',
+    title: 'Acolhimento de verdade',
+    description: 'Todos os meus pacientes se sentem escutados de forma sincera. Eu me preocupo de verdade com a evolução de cada um.',
+  },
+  {
+    icon: '<polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>',
+    title: 'Acompanhamento contínuo',
+    description: 'A cada encontro, avalio seu estado nutricional e ajusto o plano conforme o que está funcionando para você.',
+  },
+  {
+    icon: '<rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/>',
+    title: 'Materiais educativos',
+    description: 'Estou desenvolvendo guias nutricionais que ajudam você a entender o processo e manter consistência entre as consultas.',
+  },
+  {
+    icon: '<circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>',
+    title: 'Flexibilidade de horários e modalidade',
+    description: 'Atendo de segunda a sexta das 9h às 18h e aos sábados das 9h30 às 15h30. Presencial em Poços de Caldas ou online, como preferir.',
+  },
+];
+---
+
+<section
+  id="diferenciais"
+  class="bg-surface section-py"
+  aria-labelledby="diferenciais-heading"
+>
+  <div class="container-wide">
+    <SectionHeader
+      label="Por que me escolher"
+      title="O que torna meu atendimento diferente"
+      subtitle="Não acredito em extremos. Acredito em processo, acolhimento e consistência."
+    />
+
+    <div
+      class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5"
+      data-animate-group
+    >
+      {diferenciais.map((item) => (
+        <FeatureCard
+          icon={item.icon}
+          title={item.title}
+          description={item.description}
+        />
+      ))}
+    </div>
+  </div>
+</section>

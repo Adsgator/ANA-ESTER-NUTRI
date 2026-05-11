@@ -1,0 +1,118 @@
+---
+import { Image } from 'astro:assets';
+import Button from '../global/Button.astro';
+import heroImg from '../../assets/images/hero-principal.webp';
+
+const WA_LINK = 'https://wa.me/5535984566323?text=Ol%C3%A1!%20Vi%20seu%20perfil%20no%20Google%20e%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es%20sobre%20como%20funciona%20o%20seu%20acompanhamento%20nutricional.';
+---
+
+<section
+  id="hero-section"
+  class="relative bg-background pt-28 md:pt-36 pb-16 md:pb-24 overflow-hidden"
+  aria-labelledby="hero-heading"
+>
+  <!-- Textura de fundo sutil -->
+  <div class="absolute inset-0 opacity-[0.025] pointer-events-none bg-[radial-gradient(ellipse_at_top_right,_#436f3e_0%,_transparent_60%)]" aria-hidden="true"></div>
+
+  <div class="container-wide">
+    <div class="grid grid-cols-1 lg:grid-cols-[1fr_420px] gap-12 lg:gap-16 items-center">
+
+      <!-- Texto -->
+      <div>
+        <!-- Eyebrow label -->
+        <p class="label-tag mb-5 animate-fade-up" style="animation-delay: 0ms">
+          Nutricionista em Poços de Caldas
+        </p>
+
+        <!-- H1 — Dor #1 -->
+        <h1
+          id="hero-heading"
+          class="font-serif text-display-xl text-text-main mb-6 animate-fade-up"
+          style="animation-delay: 80ms"
+        >
+          Você não precisa de um plano alimentar sofrido para ter resultados reais
+        </h1>
+
+        <!-- Subtítulo -->
+        <p class="font-sans text-lg text-text-soft leading-relaxed mb-8 max-w-lg animate-fade-up" style="animation-delay: 160ms">
+          Acompanhamento nutricional individualizado, adaptado à sua rotina e ao seu jeito de viver. Sem extremos, sem fórmulas que não funcionam na vida real.
+        </p>
+
+        <!-- CTA -->
+        <div class="animate-fade-up" style="animation-delay: 240ms">
+          <Button
+            label="Quero iniciar meu acompanhamento"
+            href={WA_LINK}
+            variant="primary"
+            trackingId="btn-hero-wa"
+            trackingAction="click-whatsapp-hero"
+            trackingSection="hero"
+            external
+          />
+        </div>
+
+        <!-- Prova social -->
+        <div class="flex items-center gap-2.5 mt-6 animate-fade-up" style="animation-delay: 320ms">
+          <div class="flex text-secondary text-base tracking-wide" aria-hidden="true">
+            ★★★★★
+          </div>
+          <span class="font-sans text-sm text-text-soft">
+            <strong class="font-medium text-text-main">5,0</strong> no Google · 16 avaliações reais
+          </span>
+        </div>
+      </div>
+
+      <!-- Imagem -->
+      <div class="relative animate-fade-up hidden lg:block" style="animation-delay: 200ms">
+        <div class="relative">
+          <!-- Placeholder / Imagem real -->
+          <div
+            class="w-full aspect-[3/4] bg-surface rounded-sm overflow-hidden border border-border"
+            aria-label="[Foto de Ana Ester — 840x1120px]"
+          >
+            <!-- Descomente quando a foto estiver disponível: -->
+            <!--
+            <Image
+              src={heroImg}
+              alt="Ana Ester, nutricionista em Poços de Caldas"
+              width={420}
+              height={560}
+              loading="eager"
+              format="webp"
+              class="w-full h-full object-cover object-top"
+            />
+            -->
+
+            <!-- Placeholder label -->
+            <div class="w-full h-full flex flex-col items-center justify-center gap-3 text-text-muted">
+              <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" aria-hidden="true">
+                <circle cx="12" cy="8" r="4"/>
+                <path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/>
+              </svg>
+              <span class="font-sans text-xs text-center px-4">[Foto de Ana Ester — 840×1120px]</span>
+            </div>
+          </div>
+
+          <!-- Badge flutuante -->
+          <div class="absolute -bottom-4 -left-4 bg-primary text-white rounded-sm px-4 py-3 shadow-float">
+            <span class="font-sans text-xs font-medium leading-tight block">Presencial e online</span>
+            <span class="font-sans text-[0.65rem] text-white/70 block mt-0.5">Poços de Caldas e todo o Brasil</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .animate-fade-up {
+    animation: fadeUp 0.7s ease both;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .animate-fade-up { animation: none; opacity: 1; transform: none; }
+  }
+</style>

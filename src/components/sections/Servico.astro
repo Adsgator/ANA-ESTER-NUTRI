@@ -1,0 +1,82 @@
+---
+import { Image } from 'astro:assets';
+import Button from '../global/Button.astro';
+import SectionHeader from '../global/SectionHeader.astro';
+
+const WA_LINK = 'https://wa.me/5535984566323?text=Ol%C3%A1!%20Vi%20seu%20perfil%20no%20Google%20e%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es%20sobre%20como%20funciona%20o%20seu%20acompanhamento%20nutricional.';
+---
+
+<section
+  id="servico"
+  class="bg-white section-py"
+  aria-labelledby="servico-heading"
+>
+  <div class="container-wide">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+
+      <!-- Imagem à esquerda em desktop -->
+      <div class="order-last lg:order-first" data-animate>
+        <div class="relative">
+          <div
+            class="w-full aspect-[4/5] bg-surface rounded-sm overflow-hidden border border-border"
+            aria-label="[Foto de Ana Ester em atendimento — 680x850px]"
+          >
+            <!-- Descomente quando foto disponível:
+            <Image
+              src={retratoImg}
+              alt="Ana Ester realizando atendimento nutricional"
+              width={680}
+              height={850}
+              loading="lazy"
+              format="webp"
+              class="w-full h-full object-cover"
+            />
+            -->
+            <div class="w-full h-full flex flex-col items-center justify-center gap-3 text-text-muted">
+              <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" aria-hidden="true">
+                <circle cx="12" cy="8" r="4"/>
+                <path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/>
+              </svg>
+              <span class="font-sans text-xs">[Retrato Ana Ester — 680×850px]</span>
+            </div>
+          </div>
+
+          <!-- Detalhe decorativo -->
+          <div class="absolute -top-3 -right-3 w-24 h-24 border border-primary/20 rounded-sm pointer-events-none" aria-hidden="true"></div>
+        </div>
+      </div>
+
+      <!-- Texto -->
+      <div>
+        <p class="label-tag mb-4" data-animate>O acompanhamento</p>
+        <h2 id="servico-heading" class="font-serif text-display-lg text-text-main mb-6 leading-snug" data-animate>
+          Nutrição feita para a sua vida, não para um modelo genérico
+        </h2>
+
+        <div class="space-y-4" data-animate>
+          <p class="font-sans text-base text-text-soft leading-relaxed">
+            Eu desenvolvi um acompanhamento que leva em conta de verdade quem você é. Sua rotina, seus objetivos, seu histórico de saúde e até seus exames laboratoriais entram no processo desde a primeira consulta.
+          </p>
+          <p class="font-sans text-base text-text-soft leading-relaxed">
+            O plano alimentar que você recebe é exclusivo e vai sendo ajustado conforme a sua evolução. Em cada encontro, faço uma avaliação do estado nutricional para que você saiba exatamente onde está e para onde estamos caminhando.
+          </p>
+          <p class="font-sans text-base text-text-soft leading-relaxed">
+            Muita gente chega buscando resultado estético e logo percebe que os benefícios vão muito além. Mais disposição, mais saúde e uma relação mais leve com a comida.
+          </p>
+        </div>
+
+        <div class="mt-8" data-animate>
+          <Button
+            label="Falar comigo no WhatsApp"
+            href={WA_LINK}
+            variant="primary"
+            trackingId="btn-servico-wa"
+            trackingAction="click-whatsapp-servico"
+            trackingSection="servico"
+            external
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
