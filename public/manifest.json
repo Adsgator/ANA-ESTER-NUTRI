@@ -1,0 +1,16 @@
+{
+  "name": "Ana Ester Nutricionista",
+  "short_name": "Ana Ester",
+  "description": "Acompanhamento nutricional individualizado em Poços de Caldas",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#436f3e",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}

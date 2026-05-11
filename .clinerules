@@ -1,0 +1,27 @@
+# Projeto: Ana Ester Nutricionista — Adsgator
+
+## Prioridades
+1. Não alterar copy — texto vem do DOC-1
+2. Não usar HEX hardcoded — sempre tokens Tailwind
+3. prefers-reduced-motion obrigatório antes de GSAP
+4. Sem console.log em produção
+5. Sem <div> clicável
+
+## Padrões de commit
+feat: nova seção ou componente
+fix: correção de bug
+style: ajuste visual sem lógica
+perf: melhoria de performance
+a11y: melhoria de acessibilidade
+
+## Comandos úteis
+npm run dev      → servidor local
+npm run build    → build de produção
+npm run preview  → preview do build
+
+## Variáveis de ambiente
+Ver .env.example — nunca commitar .env
+
+## Assets
+Placeholders em src/assets/images/
+Substituir antes do go-live: hero-principal.webp, profissional-retrato.webp, og-image.webp, avatar-links.webp
