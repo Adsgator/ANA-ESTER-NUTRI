@@ -21,7 +21,7 @@ const labelColor = customLabelColor || (dark ? 'text-primary/80' : 'text-primary
   {label && (
     <p class={`label-tag ${labelColor} mb-4`}>{label}</p>
   )}
-  <h2 class={`font-serif text-display-lg ${titleColor} ${titleMaxWidth} ${align === 'center' ? 'mx-auto' : ''} mb-5 leading-tight`}>
+  <h2 class={`font-serif text-display-lg ${titleColor} ${titleMaxWidth} ${align === 'center' ? 'mx-auto' : ''} mb-5`}>
     <Fragment set:html={title} />
   </h2>
   {subtitle && (

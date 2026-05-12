@@ -137,7 +137,7 @@ const reviews = [
         {
           [...reviews, ...reviews].map((review, idx) => (
             <div
-              class="flex-shrink-0 w-[85vw] lg:w-[calc(33.333%-1rem)]"
+              class="flex-shrink-0 w-[85vw] md:w-[calc(50%-0.75rem)] lg:w-[calc(33.333%-1rem)]"
               aria-hidden={idx >= reviews.length ? "true" : "false"}
             >
               <ReviewCard

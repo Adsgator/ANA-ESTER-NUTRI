@@ -1,5 +1,8 @@
 import { useState, useEffect, useRef } from 'react';
+import { createPortal } from 'react-dom';
 import { motion, AnimatePresence, useReducedMotion } from 'framer-motion';
+import { Image } from 'astro:assets';
+import logoDourada from '../../assets/images/logomarca_dourada_sem_fundo.webp';
 
 interface NavLink {
   label: string;
@@ -100,7 +103,8 @@ export default function MobileMenu({ links, ctaLabel, ctaHref }: Props) {
         />
       </button>
 
-      {/* Overlay fullscreen */}
+      {/* Overlay fullscreen — portal para document.body para escapar do stacking context do header */}
+      {typeof document !== 'undefined' && createPortal(
       <AnimatePresence>
         {isOpen && (
           <motion.div
@@ -109,7 +113,7 @@ export default function MobileMenu({ links, ctaLabel, ctaHref }: Props) {
             role="dialog"
             aria-modal="true"
             aria-label="Menu de navegação"
-            className="fixed inset-0 z-[100] bg-dark flex flex-col px-8 py-8"
+            className="fixed inset-0 z-[100] bg-[#1d1d1c] flex flex-col px-8 py-8"
             variants={overlayVariants}
             initial="closed"
             animate="open"
@@ -118,7 +122,11 @@ export default function MobileMenu({ links, ctaLabel, ctaHref }: Props) {
           >
             {/* Cabeçalho do overlay */}
             <div className="flex items-center justify-between mb-16">
-              <span className="font-serif text-2xl text-white tracking-tight">Ana Ester</span>
+              <img
+                src={logoDourada.src}
+                alt="Ana Ester Nutricionista"
+                className="h-16 w-auto"
+              />
               <button
                 onClick={() => setIsOpen(false)}
                 aria-label="Fechar menu"
@@ -173,7 +181,9 @@ export default function MobileMenu({ links, ctaLabel, ctaHref }: Props) {
             </motion.a>
           </motion.div>
         )}
-      </AnimatePresence>
+      </AnimatePresence>,
+      document.body
+      )}
 
       <style>{`
         .btn-secondary-gold-mobile {

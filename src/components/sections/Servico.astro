@@ -15,8 +15,8 @@ const WA_LINK = 'https://wa.me/5535984566323?text=Ol%C3%A1!%20Vi%20seu%20perfil%
   <div class="container-wide">
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
 
-      <!-- Imagem à esquerda em desktop -->
-      <div class="order-last lg:order-first" data-animate>
+      <!-- Imagem à esquerda em desktop (hidden em mobile, aparece via bloco abaixo) -->
+      <div class="hidden lg:block lg:order-first" data-animate>
         <div class="relative overflow-hidden">
           <!-- Decorative background -->
           <div class="absolute -inset-8 bg-gradient-to-b from-primary/10 to-transparent rounded-2xl -z-10" aria-hidden="true"></div>
@@ -44,9 +44,22 @@ const WA_LINK = 'https://wa.me/5535984566323?text=Ol%C3%A1!%20Vi%20seu%20perfil%
       <!-- Texto -->
       <div>
         <p class="label-tag mb-4" data-animate>O acompanhamento</p>
-        <h2 id="servico-heading" class="font-serif text-display-lg text-text-main mb-6 leading-tight" data-animate>
+        <h2 id="servico-heading" class="font-serif text-display-lg text-text-main mb-6" data-animate>
           Nutrição feita para a sua vida, não para um modelo genérico
         </h2>
+
+        <!-- Imagem mobile — aparece só em mobile, logo após o título -->
+        <div class="block lg:hidden mb-8 rounded-xl overflow-hidden border border-border shadow-[0_12px_40px_rgba(67,111,62,0.15)]" data-animate>
+          <Image
+            src={retratoImg}
+            alt="Ana Ester realizando atendimento nutricional"
+            width={680}
+            height={850}
+            loading="lazy"
+            format="webp"
+            class="w-full h-auto object-cover"
+          />
+        </div>
 
         <div class="space-y-4" data-animate>
           <div class="flex gap-3">

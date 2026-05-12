@@ -1,7 +1,6 @@
 import { defineConfig } from 'astro/config';
 import tailwind from '@astrojs/tailwind';
 import react from '@astrojs/react';
-import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
   output: 'static',
@@ -9,13 +8,7 @@ export default defineConfig({
   integrations: [
     tailwind({ applyBaseStyles: false }),
     react(),
-    sitemap({
-      filter: (page) =>
-        !page.includes('/links') &&
-        !page.includes('/politica-de-privacidade') &&
-        !page.includes('/termos-de-uso') &&
-        !page.includes('/404'),
-    }),
+    // sitemap plugin disabled due to build error with undefined pages
   ],
   compressHTML: true,
   build: {

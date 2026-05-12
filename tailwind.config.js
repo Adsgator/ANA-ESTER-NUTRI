@@ -23,8 +23,8 @@ export default {
         sans:  ['"DM Sans"', 'ui-sans-serif', 'system-ui', 'sans-serif'],
       },
       fontSize: {
-        'display-xl': ['clamp(2.6rem, 5.5vw, 4.2rem)', { lineHeight: '1.1', letterSpacing: '-0.01em' }],
-        'display-lg': ['clamp(2rem, 4vw, 3.2rem)',     { lineHeight: '1.15', letterSpacing: '-0.01em' }],
+        'display-xl': ['clamp(2.6rem, 5.5vw, 4.2rem)', { lineHeight: '1', letterSpacing: '-0.01em' }],
+        'display-lg': ['clamp(2rem, 4vw, 3.2rem)',     { lineHeight: '1', letterSpacing: '-0.01em' }],
         'display-md': ['clamp(1.7rem, 3vw, 2.4rem)',   { lineHeight: '1.2' }],
         'display-sm': ['clamp(1.4rem, 2.5vw, 1.9rem)', { lineHeight: '1.25' }],
         'label':      ['0.72rem',                       { lineHeight: '1', letterSpacing: '0.16em' }],

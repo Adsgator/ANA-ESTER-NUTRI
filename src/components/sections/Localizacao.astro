@@ -22,8 +22,8 @@ const clinicImages = [
 
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-end">
 
-      <!-- Lado esquerdo: Carousel retrato -->
-      <div data-animate>
+      <!-- Lado esquerdo: Carousel retrato (desktop only) -->
+      <div data-animate class="hidden lg:block">
         <div class="relative" data-carousel>
 
           <!-- Track — proporção retrato 3/4 -->
@@ -97,13 +97,70 @@ const clinicImages = [
           <p class="label-tag mb-4">Nossa localização</p>
           <h2
             id="localizacao-heading"
-            class="font-serif text-display-lg text-text-main mb-3 leading-tight"
+            class="font-serif text-display-lg text-text-main mb-3"
           >
             Ambiente pensado para você
           </h2>
           <p class="font-sans text-base text-text-soft leading-relaxed">
             Conheça o espaço onde cada consulta é pensada com cuidado e acolhimento.
           </p>
+        </div>
+
+        <!-- Carousel mobile — aparece só em mobile, após o texto de apoio -->
+        <div class="block lg:hidden relative" data-carousel-mobile>
+          <div class="overflow-hidden rounded-lg border border-border shadow-card bg-surface" style="aspect-ratio: 3/4;">
+            <div
+              class="flex h-full"
+              data-carousel-track-mobile
+              style="transform: translateX(0); transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);"
+            >
+              {clinicImages.map((img) => (
+                <div class="w-full h-full flex-shrink-0">
+                  <Image
+                    src={img.src}
+                    alt={img.alt}
+                    width={540}
+                    height={720}
+                    loading="lazy"
+                    format="webp"
+                    class="w-full h-full object-cover"
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
+          <button
+            class="absolute left-3 top-1/2 -translate-y-1/2 z-10 w-11 h-11 bg-white/90 hover:bg-white border border-border rounded-full flex items-center justify-center text-text-main shadow-card transition-all focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+            aria-label="Imagem anterior"
+            data-carousel-prev-mobile
+          >
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <polyline points="15 18 9 12 15 6"></polyline>
+            </svg>
+          </button>
+          <button
+            class="absolute right-3 top-1/2 -translate-y-1/2 z-10 w-11 h-11 bg-white/90 hover:bg-white border border-border rounded-full flex items-center justify-center text-text-main shadow-card transition-all focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+            aria-label="Próxima imagem"
+            data-carousel-next-mobile
+          >
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <polyline points="9 18 15 12 9 6"></polyline>
+            </svg>
+          </button>
+          <div class="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2" role="tablist" aria-label="Imagens da clínica">
+            {clinicImages.map((img, i) => (
+              <button
+                role="tab"
+                class="h-1.5 rounded-full transition-all duration-300 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white p-2"
+                aria-label={img.alt}
+                aria-selected={i === 0 ? 'true' : 'false'}
+                data-carousel-dot-mobile={i}
+                style={i === 0
+                  ? 'width: 24px; background-color: #ffffff;'
+                  : 'width: 8px; background-color: rgba(255,255,255,0.45);'}
+              />
+            ))}
+          </div>
         </div>
 
         <!-- Card único: endereço + horários + mapa -->
@@ -191,6 +248,59 @@ const clinicImages = [
     var dots = carousel.querySelectorAll('[data-carousel-dot]');
     var prevBtn = carousel.querySelector('[data-carousel-prev]');
     var nextBtn = carousel.querySelector('[data-carousel-next]');
+
+    if (!track || !dots.length) return;
+
+    var currentIndex = 0;
+    var total = dots.length;
+    var autoTimer = null;
+    var prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    if (prefersReduced) track.style.transition = 'none';
+
+    function updateCarousel() {
+      track.style.transform = 'translateX(' + (-currentIndex * 100) + '%)';
+      dots.forEach(function (dot, i) {
+        var isActive = i === currentIndex;
+        dot.setAttribute('aria-selected', isActive ? 'true' : 'false');
+        dot.style.width = isActive ? '24px' : '8px';
+        dot.style.backgroundColor = isActive ? '#ffffff' : 'rgba(255,255,255,0.45)';
+      });
+    }
+
+    function goTo(index) {
+      currentIndex = (index + total) % total;
+      updateCarousel();
+    }
+
+    function startAuto() {
+      if (prefersReduced) return;
+      autoTimer = setInterval(function () { goTo(currentIndex + 1); }, 5000);
+    }
+
+    function stopAuto() { clearInterval(autoTimer); }
+
+    prevBtn && prevBtn.addEventListener('click', function () { stopAuto(); goTo(currentIndex - 1); startAuto(); });
+    nextBtn && nextBtn.addEventListener('click', function () { stopAuto(); goTo(currentIndex + 1); startAuto(); });
+    dots.forEach(function (dot, i) {
+      dot.addEventListener('click', function () { stopAuto(); goTo(i); startAuto(); });
+    });
+
+    carousel.addEventListener('mouseenter', stopAuto);
+    carousel.addEventListener('mouseleave', startAuto);
+
+    startAuto();
+  })();
+
+  // Carousel mobile
+  (function () {
+    var carousel = document.querySelector('[data-carousel-mobile]');
+    if (!carousel) return;
+
+    var track = carousel.querySelector('[data-carousel-track-mobile]');
+    var dots = carousel.querySelectorAll('[data-carousel-dot-mobile]');
+    var prevBtn = carousel.querySelector('[data-carousel-prev-mobile]');
+    var nextBtn = carousel.querySelector('[data-carousel-next-mobile]');
 
     if (!track || !dots.length) return;
 

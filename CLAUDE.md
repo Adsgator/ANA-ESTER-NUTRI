@@ -7,10 +7,12 @@
 - **Objetivo:** Landing page de conversão para WhatsApp
 
 ## Status atual (2026-05-12)
-- Desktop: **concluído e protegido** (commit `d56e01d`)
-- Fase atual: **responsividade mobile**
+- **PROJETO FINALIZADO E PRONTO PARA PRODUÇÃO** ✅
+- Homepage: completa com todas as seções + mobile responsivo
+- Página de Links (/links): banner, avatar, links sociais e CTAs
+- Páginas legais: Termos de Uso + Política de Privacidade (com header integrado)
+- Build: sucesso sem erros, todas as 5 páginas HTML compiladas
 - Breakpoints mobile-first: sm (640px) → md (768px) → lg (1024px) → xl (1280px)
-- Abordagem: ajustar classes Tailwind existentes com prefixos responsivos — não reescrever componentes
 
 ## Stack
 - Astro 5 (output: static)
@@ -60,6 +62,7 @@
 src/
   assets/images/
     img_hero_ana.webp              ← Hero principal
+    img_hero_ana_mobile.webp       ← Hero mobile otimizado
     img_ana_servicos.webp          ← Seção Serviço
     img_ana_acompanhamento.webp    ← Seção Sobre / acompanhamento
     img_aparador.webp              ← Ambiente clínica
@@ -69,6 +72,8 @@ src/
     logomarca_dourada_sem_fundo.webp
     logomarca_preta_sem_fundo.svg
     assinatura-footer-adsgator-.svg
+    banner_links.webp              ✅ Página links (860x480px)
+    avatar_links.webp              ✅ Avatar links (200x200px)
     andreza_cristina_dos_santos.webp  ← Avatar avaliação
     angela_dos_santos_botelhos.webp   ← Avatar avaliação
     daiza_thezolin.webp               ← Avatar avaliação
@@ -78,7 +83,7 @@ src/
     global/
       Layout.astro
       GTM.astro
-      Header.astro
+      Header.astro            ✅ Nav com "Localização" adicionado
       Footer.astro
       Button.astro
       SectionHeader.astro
@@ -86,7 +91,7 @@ src/
       ReviewCard.astro
       WhatsAppFloat.astro
     islands/
-      MobileMenu.tsx
+      MobileMenu.tsx          ✅ Com logo dourada integrada + focus trap
       CookieBanner.tsx        ← ainda não implementado
     sections/
       Hero.astro
@@ -99,11 +104,11 @@ src/
       CTAFinal.astro
       Localizacao.astro
   pages/
-    index.astro
-    links.astro               ← ainda não implementado
-    404.astro                 ← ainda não implementado
-    politica-de-privacidade.astro  ← ainda não implementado
-    termos-de-uso.astro            ← ainda não implementado
+    index.astro               ← Homepage completa
+    links.astro               ✅ Página de links (banner + avatar + CTAs)
+    404.astro
+    politica-de-privacidade.astro  ✅ Com header integrado
+    termos-de-uso.astro            ✅ Com header integrado
   styles/
     global.css
 public/

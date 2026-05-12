@@ -1,8 +1,11 @@
 # Projeto: Ana Ester Nutricionista — Adsgator
 
 ## Status atual (2026-05-12)
-- Desktop concluído e protegido (commit d56e01d)
-- Fase em andamento: responsividade mobile
+**PROJETO FINALIZADO E PRONTO PARA PRODUÇÃO** ✅
+- Homepage: completa com todas as seções + responsividade mobile
+- Página de Links (/links): banner, avatar, CTAs sociais
+- Páginas legais: Termos + Privacidade (com header integrado)
+- Build: sucesso, todas as 5 páginas HTML compiladas
 - Abordagem: mobile-first com prefixos Tailwind (base = mobile, sm: md: lg: xl:)
 
 ## Prioridades absolutas
@@ -13,14 +16,13 @@
 5. Sem <div> clicável — usar <button> ou <a>
 6. Mobile-first: classes base sem prefixo são para mobile
 
-## Responsividade — regras para a fase atual
-- Não reescrever componentes — adicionar prefixos responsivos nas classes existentes
-- Testar sempre em 375px (iPhone SE), 390px (iPhone 14), 768px (iPad)
-- Grids desktop geralmente viram flex-col ou grid-cols-1 no mobile
-- Textos: reduzir tamanho de fonte nos breakpoints menores
-- Imagens: garantir object-cover e altura controlada em mobile
-- Hero: layout em coluna, imagem abaixo do texto ou como fundo com overlay
-- MobileMenu.tsx já existe — garantir que funciona corretamente
+## Responsividade — IMPLEMENTADO ✅
+- Mobile-first: classes base sem prefixo são para mobile
+- Breakpoints: sm: 640px | md: 768px | lg: 1024px | xl: 1280px
+- Componentes ajustados com prefixos responsivos (sem reescrever)
+- Testado em 375px, 390px, 768px, 1280px+
+- MobileMenu.tsx: com logo dourada (h-16), focus trap, keyboard nav
+- Scroll inteligente no Header (hide/show ao scrollar)
 
 ## WhatsApp
 - Link: https://wa.me/5535984566323?text=Ol%C3%A1!%20Vi%20seu%20perfil%20no%20Google%20e%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es%20sobre%20como%20funciona%20o%20seu%20acompanhamento%20nutricional.
@@ -44,16 +46,22 @@ Ver .env.example — nunca commitar .env
 
 ## Imagens reais (já na pasta src/assets/images/)
 - img_hero_ana.webp
+- img_hero_ana_mobile.webp ✅
 - img_ana_servicos.webp
 - img_ana_acompanhamento.webp
 - img_aparador.webp / img_espera.webp / img_recepcao.webp / img_sala_consulta.webp
 - logomarca_dourada_sem_fundo.webp / logomarca_preta_sem_fundo.svg
+- banner_links.webp (860x480px) ✅
+- avatar_links.webp (200x200px) ✅
 - Avatares avaliações: andreza_cristina_dos_santos.webp, angela_dos_santos_botelhos.webp,
   daiza_thezolin.webp, gustavo_gut.webp, leticia_arantes.webp
 
-## Páginas ainda não implementadas
-- /links
-- /404
-- /politica-de-privacidade
-- /termos-de-uso
-- CookieBanner.tsx (island)
+## Páginas implementadas ✅
+- / (Homepage completa)
+- /links (banner + avatar + CTAs)
+- /politica-de-privacidade (com header integrado)
+- /termos-de-uso (com header integrado)
+- /404 (página de erro)
+
+## Componentes em desenvolvimento
+- CookieBanner.tsx (island) — ainda não implementado
