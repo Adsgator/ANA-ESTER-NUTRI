@@ -68,6 +68,10 @@ Transformação de bem-estar e autoestima. Na maioria dos casos o primeiro conta
 
 Posso dizer TODOS os meus pacientes se sentem acolhidos e escutados de uma maneira realmente sincera.
 
+**Frase de visão / Citação:**
+
+A nutrição que eu acredito começa com escuta, carinho e clareza.
+
 **Qual é o principal meio de contato que você gostaria de destacar na sua página? (ex: telefone, WhatsApp, e-mail, formulário).**
 
 whatsapp

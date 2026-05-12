@@ -1,27 +1,59 @@
 # Projeto: Ana Ester Nutricionista — Adsgator
 
-## Prioridades
+## Status atual (2026-05-12)
+- Desktop concluído e protegido (commit d56e01d)
+- Fase em andamento: responsividade mobile
+- Abordagem: mobile-first com prefixos Tailwind (base = mobile, sm: md: lg: xl:)
+
+## Prioridades absolutas
 1. Não alterar copy — texto vem do DOC-1
-2. Não usar HEX hardcoded — sempre tokens Tailwind
-3. prefers-reduced-motion obrigatório antes de GSAP
+2. Não usar HEX hardcoded — sempre tokens Tailwind (ver tailwind.config.js)
+3. prefers-reduced-motion obrigatório antes de qualquer animação GSAP
 4. Sem console.log em produção
-5. Sem <div> clicável
+5. Sem <div> clicável — usar <button> ou <a>
+6. Mobile-first: classes base sem prefixo são para mobile
+
+## Responsividade — regras para a fase atual
+- Não reescrever componentes — adicionar prefixos responsivos nas classes existentes
+- Testar sempre em 375px (iPhone SE), 390px (iPhone 14), 768px (iPad)
+- Grids desktop geralmente viram flex-col ou grid-cols-1 no mobile
+- Textos: reduzir tamanho de fonte nos breakpoints menores
+- Imagens: garantir object-cover e altura controlada em mobile
+- Hero: layout em coluna, imagem abaixo do texto ou como fundo com overlay
+- MobileMenu.tsx já existe — garantir que funciona corretamente
+
+## WhatsApp
+- Link: https://wa.me/5535984566323?text=Ol%C3%A1!%20Vi%20seu%20perfil%20no%20Google%20e%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es%20sobre%20como%20funciona%20o%20seu%20acompanhamento%20nutricional.
+- Evento GTM ao clicar: contato_wpp
 
 ## Padrões de commit
-feat: nova seção ou componente
-fix: correção de bug
+feat:  nova seção ou componente
+fix:   correção de bug
 style: ajuste visual sem lógica
-perf: melhoria de performance
-a11y: melhoria de acessibilidade
+perf:  melhoria de performance
+a11y:  melhoria de acessibilidade
+resp:  ajuste de responsividade mobile
 
 ## Comandos úteis
-npm run dev      → servidor local
+npm run dev      → servidor local (porta 4321)
 npm run build    → build de produção
 npm run preview  → preview do build
 
 ## Variáveis de ambiente
 Ver .env.example — nunca commitar .env
 
-## Assets
-Placeholders em src/assets/images/
-Substituir antes do go-live: hero-principal.webp, profissional-retrato.webp, og-image.webp, avatar-links.webp
+## Imagens reais (já na pasta src/assets/images/)
+- img_hero_ana.webp
+- img_ana_servicos.webp
+- img_ana_acompanhamento.webp
+- img_aparador.webp / img_espera.webp / img_recepcao.webp / img_sala_consulta.webp
+- logomarca_dourada_sem_fundo.webp / logomarca_preta_sem_fundo.svg
+- Avatares avaliações: andreza_cristina_dos_santos.webp, angela_dos_santos_botelhos.webp,
+  daiza_thezolin.webp, gustavo_gut.webp, leticia_arantes.webp
+
+## Páginas ainda não implementadas
+- /links
+- /404
+- /politica-de-privacidade
+- /termos-de-uso
+- CookieBanner.tsx (island)

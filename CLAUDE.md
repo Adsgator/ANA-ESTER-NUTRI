@@ -6,9 +6,15 @@
 - **Domínio:** anaesternutricionista.com.br
 - **Objetivo:** Landing page de conversão para WhatsApp
 
+## Status atual (2026-05-12)
+- Desktop: **concluído e protegido** (commit `d56e01d`)
+- Fase atual: **responsividade mobile**
+- Breakpoints mobile-first: sm (640px) → md (768px) → lg (1024px) → xl (1280px)
+- Abordagem: ajustar classes Tailwind existentes com prefixos responsivos — não reescrever componentes
+
 ## Stack
-- Astro (output: static)
-- Tailwind CSS (tokens em tailwind.config.js — nunca HEX hardcoded)
+- Astro 5 (output: static)
+- Tailwind CSS v3 (tokens em tailwind.config.js — nunca HEX hardcoded)
 - GSAP + ScrollTrigger (em `<script>` dentro de .astro)
 - Framer Motion (apenas em islands React)
 - Lenis smooth scroll
@@ -23,6 +29,7 @@
 6. SEMPRE `rel="noopener noreferrer"` em links externos
 7. NUNCA `<div>` clicável — usar `<button>` ou `<a>`
 8. NUNCA `<form>` HTML em islands React — usar event handlers
+9. SEMPRE mobile-first ao adicionar responsividade — base sem prefixo é mobile, depois sm: md: lg:
 
 ## WhatsApp
 - Número: 5535984566323
@@ -48,15 +55,25 @@
 - text-main: #1d1d1c
 - text-soft: #535353
 
-## Estrutura de Arquivos
+## Estrutura de Arquivos (estado real)
 ```
 src/
   assets/images/
-    hero-principal.webp      ← foto principal (substituir)
-    profissional-retrato.webp ← retrato seção Sobre (substituir)
-    og-image.webp            ← 1200x630px (substituir)
-    favicon.svg              ← SVG nativo
-    avatar-links.webp        ← 192x192px /links (substituir)
+    img_hero_ana.webp              ← Hero principal
+    img_ana_servicos.webp          ← Seção Serviço
+    img_ana_acompanhamento.webp    ← Seção Sobre / acompanhamento
+    img_aparador.webp              ← Ambiente clínica
+    img_espera.webp                ← Ambiente clínica
+    img_recepcao.webp              ← Ambiente clínica
+    img_sala_consulta.webp         ← Ambiente clínica
+    logomarca_dourada_sem_fundo.webp
+    logomarca_preta_sem_fundo.svg
+    assinatura-footer-adsgator-.svg
+    andreza_cristina_dos_santos.webp  ← Avatar avaliação
+    angela_dos_santos_botelhos.webp   ← Avatar avaliação
+    daiza_thezolin.webp               ← Avatar avaliação
+    gustavo_gut.webp                  ← Avatar avaliação
+    leticia_arantes.webp              ← Avatar avaliação
   components/
     global/
       Layout.astro
@@ -70,7 +87,7 @@ src/
       WhatsAppFloat.astro
     islands/
       MobileMenu.tsx
-      CookieBanner.tsx
+      CookieBanner.tsx        ← ainda não implementado
     sections/
       Hero.astro
       Servico.astro
@@ -80,12 +97,13 @@ src/
       AvaliacoesGoogle.astro
       FAQ.astro
       CTAFinal.astro
+      Localizacao.astro
   pages/
     index.astro
-    links.astro
-    404.astro
-    politica-de-privacidade.astro
-    termos-de-uso.astro
+    links.astro               ← ainda não implementado
+    404.astro                 ← ainda não implementado
+    politica-de-privacidade.astro  ← ainda não implementado
+    termos-de-uso.astro            ← ainda não implementado
   styles/
     global.css
 public/
@@ -103,4 +121,5 @@ public/
 7. Avaliações Google
 8. FAQ
 9. CTA Final
-10. Rodapé
+10. Localização
+11. Rodapé
