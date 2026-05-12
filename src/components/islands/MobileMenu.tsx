@@ -1,7 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { createPortal } from 'react-dom';
 import { motion, AnimatePresence, useReducedMotion } from 'framer-motion';
-import { Image } from 'astro:assets';
 import logoDourada from '../../assets/images/logomarca_dourada_sem_fundo.webp';
 
 interface NavLink {
@@ -185,40 +184,6 @@ export default function MobileMenu({ links, ctaLabel, ctaHref }: Props) {
       document.body
       )}
 
-      <style>{`
-        .btn-secondary-gold-mobile {
-          background-image: linear-gradient(135deg, #d59740 0%, #f9f395 50%, #c4872f 100%);
-          box-shadow: 0 4px 15px rgba(213, 151, 64, 0.25);
-          position: relative;
-          overflow: hidden;
-          transition: all 0.3s ease-out;
-        }
-
-        .btn-secondary-gold-mobile:hover {
-          transform: translateY(-2px) scale(1.02);
-          box-shadow: 0 8px 25px rgba(213, 151, 64, 0.35);
-        }
-
-        .btn-secondary-gold-mobile::after {
-          content: '';
-          position: absolute;
-          inset: 0;
-          background-image: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
-          opacity: 0;
-          transition: opacity 0.5s ease;
-          pointer-events: none;
-        }
-
-        .btn-secondary-gold-mobile:hover::after {
-          opacity: 1;
-          animation: shimmer-mobile 1.5s infinite;
-        }
-
-        @keyframes shimmer-mobile {
-          0% { transform: translateX(-100%); }
-          100% { transform: translateX(100%); }
-        }
-      `}</style>
     </div>
   );
 }

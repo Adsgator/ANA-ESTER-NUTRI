@@ -88,6 +88,34 @@
     0% { transform: translateX(-100%); }
     100% { transform: translateX(100%); }
   }
+
+  /* Mobile menu button — same as secondary-gold but mobile-optimized */
+  .btn-secondary-gold-mobile {
+    @apply relative overflow-hidden text-text-main font-sans font-medium;
+    background-image: theme('backgroundImage.secondary-gradient');
+    box-shadow: 0 4px 15px rgba(213, 151, 64, 0.25);
+  }
+
+  .btn-secondary-gold-mobile:hover {
+    @apply -translate-y-0.5 scale-[1.02];
+    box-shadow: 0 8px 25px rgba(213, 151, 64, 0.35);
+  }
+
+  .btn-secondary-gold-mobile::after {
+    content: '';
+    @apply absolute inset-0 opacity-0 transition-opacity duration-500 pointer-events-none;
+    background-image: theme('backgroundImage.secondary-shimmer');
+  }
+
+  .btn-secondary-gold-mobile:hover::after {
+    @apply opacity-100;
+    animation: shimmer-mobile 1.5s infinite;
+  }
+
+  @keyframes shimmer-mobile {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+  }
 }
 
 /* Lenis */
