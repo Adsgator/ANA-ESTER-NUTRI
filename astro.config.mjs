@@ -7,7 +7,7 @@ export default defineConfig({
   output: 'static',
   site: 'https://anaesternutricionista.com.br',
   integrations: [
-    tailwind({ applyBaseStyles: false }),
+    tailwind(),
     react(),
     sitemap({
       filter: (page) =>

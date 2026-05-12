@@ -2,84 +2,79 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Fontes */
-@import '@fontsource/dm-sans/300.css';
-@import '@fontsource/dm-sans/400.css';
-@import '@fontsource/dm-sans/500.css';
-
-/* Cormorant Garamond via Google Fonts — carregado no <head> */
-
 @layer base {
-  *, *::before, *::after {
-    box-sizing: border-box;
-  }
+    :root {
+        scroll-behavior: auto;
+    }
 
-  html {
-    scroll-behavior: auto; /* Lenis gerencia */
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-  }
+    html {
+        @apply bg-background text-text-main;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
 
-  body {
-    @apply bg-background text-text-main font-sans font-light;
-    overflow-x: hidden;
-  }
+    *:focus-visible {
+        @apply outline-2 outline-offset-2 outline-primary;
+    }
 
-  ::selection {
-    @apply bg-primary/20 text-primary-dark;
-  }
+    ::selection {
+        @apply bg-primary/20 text-primary-dark;
+    }
 
-  :focus-visible {
-    @apply outline-2 outline-offset-2 outline-primary;
-  }
+    h1, h2, h3, h4, h5, h6 {
+        @apply font-serif font-normal;
+    }
 
-  img, video {
-    max-width: 100%;
-    display: block;
-  }
-
-  h1, h2, h3, h4, h5, h6 {
-    @apply font-serif font-normal;
-  }
+    img, video {
+        max-width: 100%;
+        display: block;
+    }
 }
 
 @layer components {
-  .container-content {
-    @apply w-[90%] max-w-content mx-auto;
-  }
-  .container-wide {
-    @apply w-[90%] max-w-wide mx-auto;
-  }
-  .section-py {
-    @apply py-[clamp(5rem,10vw,8rem)];
-  }
-  .label-tag {
-    @apply text-label font-medium uppercase tracking-[0.16em] text-primary;
-  }
+    .container-content {
+        @apply mx-auto max-w-content px-4 sm:px-6 lg:px-12;
+    }
+
+    .container-wide {
+        @apply mx-auto max-w-wide px-4 sm:px-6 lg:px-12;
+    }
+
+    .section-py {
+        @apply py-20;
+    }
+
+    .label-tag {
+        @apply text-label font-medium uppercase tracking-widest text-primary;
+    }
 }
 
-/* Lenis */
+/* Lenis smooth scroll */
 html.lenis, html.lenis body {
-  height: auto;
-}
-.lenis.lenis-smooth {
-  scroll-behavior: auto !important;
-}
-.lenis.lenis-smooth [data-lenis-prevent] {
-  overscroll-behavior: contain;
-}
-.lenis.lenis-stopped {
-  overflow: hidden;
+    height: auto;
 }
 
-/* Animações de entrada — estado inicial */
-[data-animate] {
-  opacity: 0;
-  transform: translateY(30px);
+.lenis.lenis-smooth {
+    scroll-behavior: auto !important;
 }
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+    overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+    overflow: hidden;
+}
+
+/* Animations */
+[data-animate] {
+    opacity: 0;
+    transform: translateY(30px);
+}
+
 @media (prefers-reduced-motion: reduce) {
-  [data-animate] {
-    opacity: 1 !important;
-    transform: none !important;
-  }
+    [data-animate] {
+        opacity: 1 !important;
+        transform: none !important;
+    }
 }

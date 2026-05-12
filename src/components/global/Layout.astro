@@ -3,7 +3,7 @@ import GTM from './GTM.astro';
 import Header from './Header.astro';
 import Footer from './Footer.astro';
 import WhatsAppFloat from './WhatsAppFloat.astro';
-import CookieBanner from '../islands/CookieBanner';
+//import CookieBanner from '../islands/CookieBanner';
 import { Analytics } from '@vercel/analytics/astro';
 import { SpeedInsights } from '@vercel/speed-insights/astro';
 import '@fontsource/dm-sans/300.css';
@@ -137,19 +137,19 @@ const finalSchema = schema || defaultSchema;
     ></iframe>
   </noscript>
 
-  <Header />
+  {/* <Header /> */}
 
   <main id="main" tabindex="-1">
     <slot />
   </main>
 
-  <Footer />
-  <WhatsAppFloat />
+  {/* <Footer />
+  <WhatsAppFloat /> */}
 
-  <CookieBanner
+  {/* <CookieBanner
     client:idle
     gtmId={GTM_ID}
-  />
+  /> */}
 
   <Analytics />
   <SpeedInsights />
