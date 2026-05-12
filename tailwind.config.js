@@ -50,6 +50,10 @@ export default {
       transitionTimingFunction: {
         spring: 'cubic-bezier(0.34, 1.56, 0.64, 1)',
       },
+      backgroundImage: {
+        'secondary-gradient': 'linear-gradient(135deg, #d59740 0%, #f9f395 50%, #c4872f 100%)',
+        'secondary-shimmer': 'linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent)',
+      },
     },
   },
   plugins: [],

@@ -5,21 +5,23 @@ interface Props {
   subtitle?: string;
   align?: 'left' | 'center';
   dark?: boolean;
+  titleMaxWidth?: string;
+  labelColor?: string;
 }
 
-const { label, title, subtitle, align = 'center', dark = false } = Astro.props;
+const { label, title, subtitle, align = 'center', dark = false, titleMaxWidth = 'max-w-3xl', labelColor: customLabelColor } = Astro.props;
 
 const alignClass = align === 'left' ? 'text-left' : 'text-center';
 const titleColor = dark ? 'text-white' : 'text-text-main';
 const subtitleColor = dark ? 'text-white/60' : 'text-text-soft';
-const labelColor = dark ? 'text-primary/80' : 'text-primary';
+const labelColor = customLabelColor || (dark ? 'text-primary/80' : 'text-primary');
 ---
 
 <div class={`${alignClass} mb-12 md:mb-16 lg:mb-20`} data-animate>
   {label && (
     <p class={`label-tag ${labelColor} mb-4`}>{label}</p>
   )}
-  <h2 class={`font-serif text-display-lg ${titleColor} max-w-3xl leading-tight ${align === 'center' ? 'mx-auto' : ''} mb-5`}>
+  <h2 class={`font-serif text-display-lg ${titleColor} ${titleMaxWidth} ${align === 'center' ? 'mx-auto' : ''} mb-5`} style="line-height: 3.2rem;">
     <Fragment set:html={title} />
   </h2>
   {subtitle && (

@@ -1,6 +1,8 @@
 ---
+import { Image } from 'astro:assets';
 import Button from './Button.astro';
 import MobileMenu from '../islands/MobileMenu';
+import logoImg from '../../assets/images/logomarca_preta_sem_fundo.svg';
 
 const navLinks = [
   { label: 'O Serviço', href: '#servico' },
@@ -14,20 +16,32 @@ const WA_LINK = 'https://wa.me/5535984566323?text=Ol%C3%A1!%20Vi%20seu%20perfil%
 
 <header
   id="site-header"
-  class="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
+  class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 backdrop-blur-md bg-background/80"
   data-header
 >
+  <style>
+    [data-header].bg-transparent {
+      background-color: #ffffff3b;
+      border-bottom: solid 1px #f0f0f0;
+    }
+  </style>
   <div class="container-wide">
     <div class="flex items-center justify-between h-16 md:h-20">
 
       <!-- Logo -->
       <a
         href="#top"
-        class="flex flex-col leading-none focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary"
+        class="flex leading-none focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary"
         aria-label="Ana Ester Nutricionista — Ir para o topo"
       >
-        <span class="font-serif text-xl md:text-2xl text-text-main tracking-tight">Ana Ester</span>
-        <span class="font-sans text-[0.65rem] uppercase tracking-[0.15em] text-text-soft font-medium">Nutricionista</span>
+        <Image
+          src={logoImg}
+          alt="Ana Ester Nutricionista"
+          width={120}
+          height={40}
+          loading="eager"
+          class="h-10 w-auto"
+        />
       </a>
 
       <!-- Nav Desktop -->
@@ -47,7 +61,7 @@ const WA_LINK = 'https://wa.me/5535984566323?text=Ol%C3%A1!%20Vi%20seu%20perfil%
         <Button
           label="Falar no WhatsApp"
           href={WA_LINK}
-          variant="primary"
+          variant="secondary-gold"
           trackingId="btn-header-wa"
           trackingAction="click-whatsapp-header"
           trackingSection="header"
@@ -77,14 +91,17 @@ const WA_LINK = 'https://wa.me/5535984566323?text=Ol%C3%A1!%20Vi%20seu%20perfil%
 
     function updateHeader() {
       var scrollY = window.scrollY;
+      var nav = document.querySelector('[aria-label="Navegação principal"]');
 
       // Fundo ao passar de 80px
       if (scrollY > 80) {
         header.classList.add('bg-background/95', 'backdrop-blur-md', 'shadow-[0_1px_0_0_rgba(229,223,214,0.8)]');
         header.classList.remove('bg-transparent');
+        if (nav) nav.classList.remove('backdrop-blur-sm');
       } else {
         header.classList.remove('bg-background/95', 'backdrop-blur-md', 'shadow-[0_1px_0_0_rgba(229,223,214,0.8)]');
         header.classList.add('bg-transparent');
+        if (nav) nav.classList.add('backdrop-blur-sm');
       }
 
       // Esconder ao scrollar para baixo, mostrar ao subir

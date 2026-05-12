@@ -1,0 +1,238 @@
+---
+import { Image } from 'astro:assets';
+import imgAparador from '../../assets/images/img_aparador.webp';
+import imgEspera from '../../assets/images/img_espera.webp';
+import imgRecepcao from '../../assets/images/img_recepcao.webp';
+import imgSalaConsulta from '../../assets/images/img_sala_consulta.webp';
+
+const clinicImages = [
+  { src: imgRecepcao,     alt: 'Recepção da clínica Ana Ester' },
+  { src: imgEspera,       alt: 'Sala de espera' },
+  { src: imgSalaConsulta, alt: 'Sala de consulta' },
+  { src: imgAparador,     alt: 'Ambiente interno da clínica' },
+];
+---
+
+<section
+  id="localizacao"
+  class="bg-surface-alt section-py"
+  aria-labelledby="localizacao-heading"
+>
+  <div class="container-wide">
+
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-end">
+
+      <!-- Lado esquerdo: Carousel retrato -->
+      <div data-animate>
+        <div class="relative" data-carousel>
+
+          <!-- Track — proporção retrato 3/4 -->
+          <div class="overflow-hidden rounded-lg border border-border shadow-card bg-surface" style="aspect-ratio: 3/4;">
+            <div
+              class="flex h-full"
+              data-carousel-track
+              style="transform: translateX(0); transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);"
+            >
+              {clinicImages.map((img) => (
+                <div class="w-full h-full flex-shrink-0">
+                  <Image
+                    src={img.src}
+                    alt={img.alt}
+                    width={540}
+                    height={720}
+                    loading="lazy"
+                    format="webp"
+                    class="w-full h-full object-cover"
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <!-- Setas -->
+          <button
+            class="absolute left-3 top-1/2 -translate-y-1/2 z-10 w-9 h-9 bg-white/90 hover:bg-white border border-border rounded-full flex items-center justify-center text-text-main shadow-card transition-all focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+            aria-label="Imagem anterior"
+            data-carousel-prev
+          >
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <polyline points="15 18 9 12 15 6"></polyline>
+            </svg>
+          </button>
+
+          <button
+            class="absolute right-3 top-1/2 -translate-y-1/2 z-10 w-9 h-9 bg-white/90 hover:bg-white border border-border rounded-full flex items-center justify-center text-text-main shadow-card transition-all focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+            aria-label="Próxima imagem"
+            data-carousel-next
+          >
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <polyline points="9 18 15 12 9 6"></polyline>
+            </svg>
+          </button>
+
+          <!-- Dots sobrepostos na imagem -->
+          <div class="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2" role="tablist" aria-label="Imagens da clínica">
+            {clinicImages.map((img, i) => (
+              <button
+                role="tab"
+                class="h-1.5 rounded-full transition-all duration-300 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+                aria-label={img.alt}
+                aria-selected={i === 0 ? 'true' : 'false'}
+                data-carousel-dot={i}
+                style={i === 0
+                  ? 'width: 24px; background-color: #ffffff;'
+                  : 'width: 8px; background-color: rgba(255,255,255,0.45);'}
+              />
+            ))}
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Lado direito: título + card -->
+      <div data-animate class="flex flex-col gap-8">
+
+        <!-- Título e subtítulo -->
+        <div>
+          <p class="label-tag mb-4">Nossa localização</p>
+          <h2
+            id="localizacao-heading"
+            class="font-serif text-display-lg text-text-main mb-3"
+            style="line-height: 3.2rem;"
+          >
+            Ambiente pensado para você
+          </h2>
+          <p class="font-sans text-base text-text-soft leading-relaxed">
+            Conheça o espaço onde cada consulta é pensada com cuidado e acolhimento.
+          </p>
+        </div>
+
+        <!-- Card único: endereço + horários + mapa -->
+        <div class="bg-background border border-border rounded-lg shadow-card overflow-hidden">
+
+          <!-- Conteúdo interno com padding -->
+          <div class="p-6">
+            <h3 class="font-serif text-display-sm text-text-main mb-5">Como chegar</h3>
+
+            <!-- Endereço -->
+            <div class="flex gap-3 pb-5 border-b border-border">
+              <div class="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="text-primary" aria-hidden="true">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                  <circle cx="12" cy="10" r="3"/>
+                </svg>
+              </div>
+              <div>
+                <p class="font-sans text-sm font-medium text-text-main leading-snug">R. Junqueiras, 500 — 1° andar, sala 18</p>
+                <p class="font-sans text-sm text-text-soft mt-0.5">Centro, Poços de Caldas - MG</p>
+                <p class="font-sans text-xs text-text-muted mt-0.5">CEP 37701-022</p>
+              </div>
+            </div>
+
+            <!-- Horários -->
+            <div class="pt-5">
+              <p class="font-sans text-[0.7rem] uppercase tracking-[0.12em] text-text-muted font-medium mb-3">Horários de atendimento</p>
+              <div class="space-y-1.5">
+                <div class="flex items-center gap-2">
+                  <div class="w-1.5 h-1.5 rounded-full bg-primary shrink-0" aria-hidden="true"></div>
+                  <p class="font-sans text-sm text-text-soft">Segunda a sexta: <span class="text-text-main font-medium">9h às 18h</span></p>
+                </div>
+                <div class="flex items-center gap-2">
+                  <div class="w-1.5 h-1.5 rounded-full bg-primary shrink-0" aria-hidden="true"></div>
+                  <p class="font-sans text-sm text-text-soft">Sábados: <span class="text-text-main font-medium">9h30 às 15h30</span></p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Mapa sem padding (full-width dentro do card) -->
+          <div class="border-t border-border" style="height: 220px;">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d938.0453248066867!2d-46.56153937083!3d-21.787318!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94b9aa91c7e9f1c7%3A0xc4a19e5e8b5e0b10!2sR.%20Junqueiras%2C%20500%20-%20Centro%2C%20Po%C3%A7os%20de%20Caldas%20-%20MG%2C%2037701-022!5e0!3m2!1spt-BR!2sbr!4v1715000000000"
+              width="100%"
+              height="220"
+              style="border:0; display:block;"
+              allowfullscreen
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              title="Localização da clínica Ana Ester Nutricionista"
+            ></iframe>
+          </div>
+
+          <!-- Link rodapé do card -->
+          <div class="px-6 py-3 border-t border-border bg-surface">
+            <a
+              href="https://maps.google.com/?q=R.+Junqueiras,+500,+Centro,+Po%C3%A7os+de+Caldas+-+MG,+37701-022"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center gap-2 font-sans text-sm text-primary hover:text-primary-dark font-medium transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+            >
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+                <polyline points="15 3 21 3 21 9"/>
+                <line x1="10" y1="14" x2="21" y2="3"/>
+              </svg>
+              Abrir no Google Maps
+            </a>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<script is:inline>
+  (function () {
+    var carousel = document.querySelector('[data-carousel]');
+    if (!carousel) return;
+
+    var track = carousel.querySelector('[data-carousel-track]');
+    var dots = carousel.querySelectorAll('[data-carousel-dot]');
+    var prevBtn = carousel.querySelector('[data-carousel-prev]');
+    var nextBtn = carousel.querySelector('[data-carousel-next]');
+
+    if (!track || !dots.length) return;
+
+    var currentIndex = 0;
+    var total = dots.length;
+    var autoTimer = null;
+    var prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    if (prefersReduced) track.style.transition = 'none';
+
+    function updateCarousel() {
+      track.style.transform = 'translateX(' + (-currentIndex * 100) + '%)';
+      dots.forEach(function (dot, i) {
+        var isActive = i === currentIndex;
+        dot.setAttribute('aria-selected', isActive ? 'true' : 'false');
+        dot.style.width = isActive ? '24px' : '8px';
+        dot.style.backgroundColor = isActive ? '#ffffff' : 'rgba(255,255,255,0.45)';
+      });
+    }
+
+    function goTo(index) {
+      currentIndex = (index + total) % total;
+      updateCarousel();
+    }
+
+    function startAuto() {
+      if (prefersReduced) return;
+      autoTimer = setInterval(function () { goTo(currentIndex + 1); }, 5000);
+    }
+
+    function stopAuto() { clearInterval(autoTimer); }
+
+    prevBtn && prevBtn.addEventListener('click', function () { stopAuto(); goTo(currentIndex - 1); startAuto(); });
+    nextBtn && nextBtn.addEventListener('click', function () { stopAuto(); goTo(currentIndex + 1); startAuto(); });
+    dots.forEach(function (dot, i) {
+      dot.addEventListener('click', function () { stopAuto(); goTo(i); startAuto(); });
+    });
+
+    carousel.addEventListener('mouseenter', stopAuto);
+    carousel.addEventListener('mouseleave', startAuto);
+
+    startAuto();
+  })();
+</script>

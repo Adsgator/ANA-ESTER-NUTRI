@@ -54,11 +54,39 @@
     @apply py-[clamp(5rem,10vw,8rem)];
   }
   .label-tag {
-    @apply text-label font-medium uppercase tracking-[0.16em] text-primary;
+    @apply text-label font-medium uppercase tracking-[0.16em] text-secondary;
   }
   /* Smooth transitions for interactive elements */
   button, a {
     @apply transition-all duration-300 ease-out;
+  }
+
+  /* Botão Secondary Gold com efeito de shimmer */
+  .btn-secondary-gold {
+    @apply relative overflow-hidden text-text-main font-sans font-medium;
+    background-image: theme('backgroundImage.secondary-gradient');
+    box-shadow: 0 4px 15px rgba(213, 151, 64, 0.25);
+  }
+
+  .btn-secondary-gold:hover {
+    @apply -translate-y-0.5 scale-[1.02];
+    box-shadow: 0 8px 25px rgba(213, 151, 64, 0.35);
+  }
+
+  .btn-secondary-gold::after {
+    content: '';
+    @apply absolute inset-0 opacity-0 transition-opacity duration-500 pointer-events-none;
+    background-image: theme('backgroundImage.secondary-shimmer');
+  }
+
+  .btn-secondary-gold:hover::after {
+    @apply opacity-100;
+    animation: shimmer 1.5s infinite;
+  }
+
+  @keyframes shimmer {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
   }
 }
 

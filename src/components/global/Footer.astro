@@ -1,4 +1,7 @@
 ---
+import { Image } from 'astro:assets';
+import logoImg from '../../assets/images/logomarca_dourada_sem_fundo.webp';
+
 const currentYear = new Date().getFullYear();
 
 const WA_LINK = 'https://wa.me/5535984566323?text=Ol%C3%A1!%20Vi%20seu%20perfil%20no%20Google%20e%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es%20sobre%20como%20funciona%20o%20seu%20acompanhamento%20nutricional.';
@@ -10,9 +13,14 @@ const WA_LINK = 'https://wa.me/5535984566323?text=Ol%C3%A1!%20Vi%20seu%20perfil%
 
       <!-- Coluna 1 — Marca -->
       <div>
-        <a href="#top" class="inline-block mb-4 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white">
-          <span class="font-serif text-2xl text-white block leading-none">Ana Ester</span>
-          <span class="font-sans text-[0.65rem] uppercase tracking-[0.15em] text-primary mt-0.5 block">Nutricionista</span>
+        <a href="#top" class="inline-block mb-6 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white">
+          <Image
+            src={logoImg}
+            alt="Ana Ester Nutricionista"
+            width={170}
+            height={170}
+            class="w-36 h-auto"
+          />
         </a>
         <p class="font-sans text-sm text-white/50 leading-relaxed max-w-xs">
           Nutrição humanizada, individualizada e com foco na vida real. Atendo presencial em Poços de Caldas e online.
@@ -59,7 +67,7 @@ const WA_LINK = 'https://wa.me/5535984566323?text=Ol%C3%A1!%20Vi%20seu%20perfil%
 
       <!-- Coluna 2 — Contato -->
       <div>
-        <h3 class="font-sans text-[0.7rem] uppercase tracking-[0.14em] text-primary font-medium mb-5">Contato</h3>
+        <h3 class="font-sans text-[0.7rem] uppercase tracking-[0.14em] text-secondary font-medium mb-5">Contato</h3>
         <ul class="space-y-3">
           <li>
             <a
@@ -91,7 +99,7 @@ const WA_LINK = 'https://wa.me/5535984566323?text=Ol%C3%A1!%20Vi%20seu%20perfil%
 
       <!-- Coluna 3 — Localização -->
       <div>
-        <h3 class="font-sans text-[0.7rem] uppercase tracking-[0.14em] text-primary font-medium mb-5">Atendimento</h3>
+        <h3 class="font-sans text-[0.7rem] uppercase tracking-[0.14em] text-secondary font-medium mb-5">Atendimento</h3>
         <ul class="space-y-3">
           <li class="font-sans text-sm text-white/60 flex items-start gap-2">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="shrink-0 mt-0.5" aria-hidden="true">
@@ -131,9 +139,14 @@ const WA_LINK = 'https://wa.me/5535984566323?text=Ol%C3%A1!%20Vi%20seu%20perfil%
         href="https://adsgator.com.br"
         target="_blank"
         rel="noopener noreferrer"
-        class="font-sans text-xs text-white/20 hover:text-white/40 transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+        class="focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white hover:opacity-80 transition-opacity"
       >
-        Desenvolvido por Adsgator
+        <img
+          src="/src/assets/images/assinatura-footer-adsgator-.svg"
+          alt="Desenvolvido por Adsgator"
+          width="auto"
+          height="auto"
+        />
       </a>
     </div>
   </div>

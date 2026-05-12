@@ -1,6 +1,9 @@
 ---
 import SectionHeader from '../global/SectionHeader.astro';
 import FeatureCard from '../global/FeatureCard.astro';
+import Button from '../global/Button.astro';
+
+const WA_LINK = 'https://wa.me/5535984566323?text=Ol%C3%A1!%20Vi%20seu%20perfil%20no%20Google%20e%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es%20sobre%20como%20funciona%20o%20seu%20acompanhamento%20nutricional.';
 
 const diferenciais = [
   {
@@ -25,8 +28,8 @@ const diferenciais = [
   },
   {
     icon: '<rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/>',
-    title: 'Materiais educativos',
-    description: 'Estou desenvolvendo guias nutricionais que ajudam você a entender o processo e manter consistência entre as consultas.',
+    title: 'Materiais de apoio',
+    description: 'Você recebe orientações e materiais que ajudam a entender o processo e manter consistência entre as consultas, sem depender só da memória.',
   },
   {
     icon: '<circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>',
@@ -46,10 +49,12 @@ const diferenciais = [
       label="Por que me escolher"
       title="O que torna meu atendimento diferente"
       subtitle="Não acredito em extremos. Acredito em processo, acolhimento e consistência."
+      titleMaxWidth="max-w-[36rem]"
+      labelColor="text-secondary"
     />
 
     <div
-      class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
+      class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-12"
       data-animate-group
     >
       {diferenciais.map((item) => (
@@ -59,6 +64,19 @@ const diferenciais = [
           description={item.description}
         />
       ))}
+    </div>
+
+    <!-- CTA Button -->
+    <div class="flex justify-center" data-animate>
+      <Button
+        label="Fale agora pelo WhatsApp"
+        href={WA_LINK}
+        variant="secondary-gold"
+        trackingId="btn-diferenciais-wa"
+        trackingAction="click-whatsapp-diferenciais"
+        trackingSection="diferenciais"
+        external
+      />
     </div>
   </div>
 </section>

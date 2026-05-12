@@ -2,7 +2,7 @@
 import { Image } from 'astro:assets';
 import Button from '../global/Button.astro';
 import SectionHeader from '../global/SectionHeader.astro';
-import retratoImg from '../../assets/images/profissional-retrato.webp';
+import retratoImg from '../../assets/images/img_ana_acompanhamento.webp';
 
 const WA_LINK = 'https://wa.me/5535984566323?text=Ol%C3%A1!%20Vi%20seu%20perfil%20no%20Google%20e%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es%20sobre%20como%20funciona%20o%20seu%20acompanhamento%20nutricional.';
 ---
@@ -28,8 +28,8 @@ const WA_LINK = 'https://wa.me/5535984566323?text=Ol%C3%A1!%20Vi%20seu%20perfil%
             <Image
               src={retratoImg}
               alt="Ana Ester realizando atendimento nutricional"
-              width={340}
-              height={425}
+              width={680}
+              height={850}
               loading="lazy"
               format="webp"
               class="w-full h-full object-cover"
@@ -44,30 +44,30 @@ const WA_LINK = 'https://wa.me/5535984566323?text=Ol%C3%A1!%20Vi%20seu%20perfil%
       <!-- Texto -->
       <div>
         <p class="label-tag mb-4" data-animate>O acompanhamento</p>
-        <h2 id="servico-heading" class="font-serif text-display-lg text-text-main mb-6 leading-snug" data-animate>
+        <h2 id="servico-heading" class="font-serif text-display-lg text-text-main mb-6" style="line-height: 3.2rem;" data-animate>
           Nutrição feita para a sua vida, não para um modelo genérico
         </h2>
 
         <div class="space-y-4" data-animate>
           <div class="flex gap-3">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="text-primary shrink-0 mt-0.5" aria-hidden="true">
-              <polyline points="20 6 9 17 4 12"/>
+            <svg width="20" height="20" viewBox="0 0 30 30" fill="currentColor" class="text-secondary shrink-0 mt-0.5" aria-hidden="true">
+              <polygon points="15 2 18.09 10.26 26.9 11.33 20.95 17.29 22.18 26.09 15 22.77 7.82 26.09 9.05 17.29 3.1 11.33 11.91 10.26"/>
             </svg>
             <p class="font-sans text-base text-text-soft leading-relaxed">
               Eu desenvolvi um acompanhamento que leva em conta de verdade quem você é. Sua rotina, seus objetivos, seu histórico de saúde e até seus exames laboratoriais entram no processo desde a primeira consulta.
             </p>
           </div>
           <div class="flex gap-3">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="text-primary shrink-0 mt-0.5" aria-hidden="true">
-              <polyline points="20 6 9 17 4 12"/>
+            <svg width="20" height="20" viewBox="0 0 30 30" fill="currentColor" class="text-secondary shrink-0 mt-0.5" aria-hidden="true">
+              <polygon points="15 2 18.09 10.26 26.9 11.33 20.95 17.29 22.18 26.09 15 22.77 7.82 26.09 9.05 17.29 3.1 11.33 11.91 10.26"/>
             </svg>
             <p class="font-sans text-base text-text-soft leading-relaxed">
               O plano alimentar que você recebe é exclusivo e vai sendo ajustado conforme a sua evolução. Em cada encontro, faço uma avaliação do estado nutricional para que você saiba exatamente onde está e para onde estamos caminhando.
             </p>
           </div>
           <div class="flex gap-3">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="text-primary shrink-0 mt-0.5" aria-hidden="true">
-              <polyline points="20 6 9 17 4 12"/>
+            <svg width="20" height="20" viewBox="0 0 30 30" fill="currentColor" class="text-secondary shrink-0 mt-0.5" aria-hidden="true">
+              <polygon points="15 2 18.09 10.26 26.9 11.33 20.95 17.29 22.18 26.09 15 22.77 7.82 26.09 9.05 17.29 3.1 11.33 11.91 10.26"/>
             </svg>
             <p class="font-sans text-base text-text-soft leading-relaxed">
               Muita gente chega buscando resultado estético e logo percebe que os benefícios vão muito além. Mais disposição, mais saúde e uma relação mais leve com a comida.
@@ -77,9 +77,9 @@ const WA_LINK = 'https://wa.me/5535984566323?text=Ol%C3%A1!%20Vi%20seu%20perfil%
 
         <div class="mt-8" data-animate>
           <Button
-            label="Falar comigo no WhatsApp"
+            label="Fale agora pelo WhatsApp"
             href={WA_LINK}
-            variant="primary"
+            variant="secondary-gold"
             trackingId="btn-servico-wa"
             trackingAction="click-whatsapp-servico"
             trackingSection="servico"
