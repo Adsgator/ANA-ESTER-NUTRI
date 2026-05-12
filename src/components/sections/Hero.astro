@@ -65,13 +65,14 @@ const WA_LINK = 'https://wa.me/5535984566323?text=Ol%C3%A1!%20Vi%20seu%20perfil%
       <!-- Imagem -->
       <div class="relative animate-fade-up hidden lg:block" style="animation-delay: 200ms">
         <div class="relative">
-          <!-- Placeholder / Imagem real -->
+          <!-- Decorative shape behind image -->
+          <div class="absolute -inset-6 bg-gradient-to-br from-primary/15 to-primary/5 rounded-3xl -z-10" aria-hidden="true"></div>
+
+          <!-- Main image -->
           <div
-            class="w-full aspect-[3/4] bg-surface rounded-sm overflow-hidden border border-border"
+            class="w-full aspect-[3/4] bg-surface rounded-lg overflow-hidden border border-border shadow-[0_8px_32px_rgba(67,111,62,0.12)]"
             aria-label="[Foto de Ana Ester — 840x1120px]"
           >
-            <!-- Descomente quando a foto estiver disponível: -->
-            <!--
             <Image
               src={heroImg}
               alt="Ana Ester, nutricionista em Poços de Caldas"
@@ -81,22 +82,28 @@ const WA_LINK = 'https://wa.me/5535984566323?text=Ol%C3%A1!%20Vi%20seu%20perfil%
               format="webp"
               class="w-full h-full object-cover object-top"
             />
-            -->
 
-            <!-- Placeholder label -->
-            <div class="w-full h-full flex flex-col items-center justify-center gap-3 text-text-muted">
-              <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" aria-hidden="true">
-                <circle cx="12" cy="8" r="4"/>
-                <path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/>
-              </svg>
-              <span class="font-sans text-xs text-center px-4">[Foto de Ana Ester — 840×1120px]</span>
-            </div>
+            <!-- Placeholder label (fallback) -->
+            {false && (
+              <div class="w-full h-full flex flex-col items-center justify-center gap-3 text-text-muted">
+                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" aria-hidden="true">
+                  <circle cx="12" cy="8" r="4"/>
+                  <path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/>
+                </svg>
+                <span class="font-sans text-xs text-center px-4">[Foto de Ana Ester — 840×1120px]</span>
+              </div>
+            )}
           </div>
 
-          <!-- Badge flutuante -->
-          <div class="absolute -bottom-4 -left-4 bg-primary text-white rounded-sm px-4 py-3 shadow-float">
+          <!-- Floating badges -->
+          <div class="absolute -bottom-3 -left-3 bg-primary text-white rounded-lg px-4 py-3 shadow-float">
             <span class="font-sans text-xs font-medium leading-tight block">Presencial e online</span>
             <span class="font-sans text-[0.65rem] text-white/70 block mt-0.5">Poços de Caldas e todo o Brasil</span>
+          </div>
+
+          <div class="absolute -top-4 -right-4 bg-white text-primary rounded-lg px-4 py-3 shadow-float border border-primary/20">
+            <span class="font-sans text-xs font-medium block">Google: 5.0 ★</span>
+            <span class="font-sans text-[0.65rem] text-text-muted block mt-0.5">16 avaliações</span>
           </div>
         </div>
       </div>

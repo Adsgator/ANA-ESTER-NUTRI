@@ -15,15 +15,15 @@ const subtitleColor = dark ? 'text-white/60' : 'text-text-soft';
 const labelColor = dark ? 'text-primary/80' : 'text-primary';
 ---
 
-<div class={`${alignClass} mb-12 md:mb-16`} data-animate>
+<div class={`${alignClass} mb-12 md:mb-16 lg:mb-20`} data-animate>
   {label && (
-    <p class={`label-tag ${labelColor} mb-3`}>{label}</p>
+    <p class={`label-tag ${labelColor} mb-4`}>{label}</p>
   )}
-  <h2 class={`font-serif text-display-lg ${titleColor} max-w-2xl ${align === 'center' ? 'mx-auto' : ''}`}>
+  <h2 class={`font-serif text-display-lg ${titleColor} max-w-3xl leading-tight ${align === 'center' ? 'mx-auto' : ''} mb-5`}>
     <Fragment set:html={title} />
   </h2>
   {subtitle && (
-    <p class={`font-sans text-base ${subtitleColor} mt-4 max-w-xl ${align === 'center' ? 'mx-auto' : ''}`}>
+    <p class={`font-sans text-lg ${subtitleColor} max-w-2xl ${align === 'center' ? 'mx-auto' : ''}`}>
       {subtitle}
     </p>
   )}

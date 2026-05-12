@@ -8,13 +8,24 @@ interface Props {
 
 const { name, rating, text, date } = Astro.props;
 const stars = Array(rating).fill('★').join('');
+const initials = name.split(' ').slice(0, 2).map(n => n[0]).join('').toUpperCase();
+const colors = ['bg-primary/20 text-primary', 'bg-secondary/20 text-secondary', 'bg-complement/20 text-amber-600'];
+const colorIndex = (name.charCodeAt(0) + name.charCodeAt(name.length - 1)) % colors.length;
+const avatarColor = colors[colorIndex];
 ---
 
-<div class="bg-background border border-border rounded p-6 flex flex-col gap-3" data-animate-item>
+<div class="bg-background border border-border rounded-lg p-6 flex flex-col gap-4 hover:shadow-card transition-all duration-200" data-animate-item>
+  <div class="flex items-center justify-between">
+    <div class="flex items-center gap-3">
+      <div class={`w-10 h-10 rounded-full ${avatarColor} flex items-center justify-center shrink-0`}>
+        <span class="font-sans text-xs font-semibold">{initials}</span>
+      </div>
+      <div>
+        <p class="font-sans text-sm font-medium text-text-main">{name}</p>
+        {date && <p class="font-sans text-xs text-text-muted">{date}</p>}
+      </div>
+    </div>
+  </div>
   <div class="text-secondary text-sm tracking-wider">{stars}</div>
   <p class="font-sans text-sm text-text-soft leading-relaxed italic">"{text}"</p>
-  <div class="flex items-center justify-between mt-auto pt-3 border-t border-border">
-    <span class="font-sans text-sm font-medium text-text-main">{name}</span>
-    {date && <span class="font-sans text-xs text-text-muted">{date}</span>}
-  </div>
 </div>

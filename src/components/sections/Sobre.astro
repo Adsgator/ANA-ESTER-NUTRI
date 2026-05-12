@@ -1,36 +1,84 @@
 ---
+import { Image } from 'astro:assets';
+import retratoImg from '../../assets/images/profissional-retrato.webp';
 ---
 
 <section
   id="sobre"
-  class="bg-dark section-py"
+  class="bg-background section-py"
   aria-labelledby="sobre-heading"
 >
-  <div class="container-content">
-    <div class="text-center">
-      <p class="label-tag text-primary/80 mb-5" data-animate>Quem está por trás</p>
+  <div class="container-wide">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+      <!-- Imagem -->
+      <div class="relative" data-animate>
+        <!-- Decorative background -->
+        <div class="absolute -inset-6 bg-gradient-to-br from-primary/8 to-secondary/5 rounded-2xl -z-10" aria-hidden="true"></div>
 
-      <h2
-        id="sobre-heading"
-        class="font-serif text-display-lg text-white leading-snug max-w-2xl mx-auto mb-8"
-        data-animate
-      >
-        Descobri na nutrição um caminho de reconexão comigo mesma. Hoje, quero ajudar você a viver essa mesma transformação, com leveza e verdade.
-      </h2>
+        <div
+          class="w-full aspect-square bg-surface rounded-2xl overflow-hidden border border-border shadow-[0_12px_40px_rgba(67,111,62,0.1)]"
+          aria-label="[Retrato de Ana Ester]"
+        >
+          <Image
+            src={retratoImg}
+            alt="Ana Ester, nutricionista"
+            width={500}
+            height={500}
+            loading="lazy"
+            format="webp"
+            class="w-full h-full object-cover"
+          />
+        </div>
 
-      <p class="font-sans text-base text-white/60 leading-relaxed max-w-xl mx-auto mb-12" data-animate>
-        Atendo com uma abordagem acolhedora, individualizada e sem julgamentos. Meu atendimento sempre vai olhar para a sua história, sua rotina e seus sintomas para que possamos juntos traçar um caminho possível e real.
-      </p>
+        <!-- Credenciais badges -->
+        <div class="absolute -bottom-4 -right-4 bg-white text-primary rounded-xl px-5 py-4 shadow-float border border-primary/10">
+          <div class="font-serif text-2xl font-medium">+200</div>
+          <p class="font-sans text-xs text-text-soft">Pacientes atendidos</p>
+        </div>
+      </div>
 
-      <!-- Citação -->
-      <blockquote
-        class="max-w-md mx-auto border-l-2 border-primary pl-6 text-left"
-        data-animate
-      >
-        <p class="font-serif text-xl md:text-2xl text-white/70 italic leading-relaxed">
-          "A nutrição que eu acredito começa com escuta, carinho e clareza."
+      <!-- Texto -->
+      <div>
+        <p class="label-tag mb-5" data-animate>Quem está por trás</p>
+
+        <h2
+          id="sobre-heading"
+          class="font-serif text-display-lg text-text-main leading-snug mb-6"
+          data-animate
+        >
+          Nutricionista certificada com 8+ anos de experiência
+        </h2>
+
+        <p class="font-sans text-base text-text-soft leading-relaxed mb-6" data-animate>
+          Descobri na nutrição um caminho de reconexão comigo mesma. Hoje, quero ajudar você a viver essa mesma transformação, com leveza e verdade.
         </p>
-      </blockquote>
+
+        <p class="font-sans text-base text-text-soft leading-relaxed mb-8" data-animate>
+          Atendo com uma abordagem acolhedora, individualizada e sem julgamentos. Meu atendimento sempre vai olhar para a sua história, sua rotina e seus sintomas para que possamos juntos traçar um caminho possível e real.
+        </p>
+
+        <!-- Credenciais em destaque -->
+        <div class="grid grid-cols-2 gap-6 mb-10" data-animate>
+          <div>
+            <div class="font-serif text-display-md text-primary mb-1">8+</div>
+            <p class="font-sans text-sm text-text-soft">Anos de experiência</p>
+          </div>
+          <div>
+            <div class="font-serif text-display-md text-secondary mb-1">200+</div>
+            <p class="font-sans text-sm text-text-soft">Pacientes satisfeitos</p>
+          </div>
+        </div>
+
+        <!-- Citação -->
+        <blockquote
+          class="border-l-4 border-primary pl-5 py-2 mb-8"
+          data-animate
+        >
+          <p class="font-serif text-lg text-text-main italic">
+            "A nutrição que eu acredito começa com escuta, carinho e clareza."
+          </p>
+        </blockquote>
+      </div>
     </div>
   </div>
 </section>

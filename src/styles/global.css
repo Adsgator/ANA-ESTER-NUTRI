@@ -1,11 +1,11 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
 /* Fontes */
 @import '@fontsource/dm-sans/300.css';
 @import '@fontsource/dm-sans/400.css';
 @import '@fontsource/dm-sans/500.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 /* Cormorant Garamond via Google Fonts — carregado no <head> */
 
@@ -55,6 +55,10 @@
   }
   .label-tag {
     @apply text-label font-medium uppercase tracking-[0.16em] text-primary;
+  }
+  /* Smooth transitions for interactive elements */
+  button, a {
+    @apply transition-all duration-300 ease-out;
   }
 }
 

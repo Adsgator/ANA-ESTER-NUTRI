@@ -2,6 +2,7 @@
 import { Image } from 'astro:assets';
 import Button from '../global/Button.astro';
 import SectionHeader from '../global/SectionHeader.astro';
+import retratoImg from '../../assets/images/profissional-retrato.webp';
 
 const WA_LINK = 'https://wa.me/5535984566323?text=Ol%C3%A1!%20Vi%20seu%20perfil%20no%20Google%20e%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es%20sobre%20como%20funciona%20o%20seu%20acompanhamento%20nutricional.';
 ---
@@ -17,32 +18,26 @@ const WA_LINK = 'https://wa.me/5535984566323?text=Ol%C3%A1!%20Vi%20seu%20perfil%
       <!-- Imagem à esquerda em desktop -->
       <div class="order-last lg:order-first" data-animate>
         <div class="relative">
+          <!-- Decorative background -->
+          <div class="absolute -inset-8 bg-gradient-to-b from-primary/10 to-transparent rounded-2xl -z-10" aria-hidden="true"></div>
+
           <div
-            class="w-full aspect-[4/5] bg-surface rounded-sm overflow-hidden border border-border"
+            class="w-full aspect-[4/5] bg-surface rounded-xl overflow-hidden border border-border shadow-[0_12px_40px_rgba(67,111,62,0.15)]"
             aria-label="[Foto de Ana Ester em atendimento — 680x850px]"
           >
-            <!-- Descomente quando foto disponível:
             <Image
               src={retratoImg}
               alt="Ana Ester realizando atendimento nutricional"
-              width={680}
-              height={850}
+              width={340}
+              height={425}
               loading="lazy"
               format="webp"
               class="w-full h-full object-cover"
             />
-            -->
-            <div class="w-full h-full flex flex-col items-center justify-center gap-3 text-text-muted">
-              <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" aria-hidden="true">
-                <circle cx="12" cy="8" r="4"/>
-                <path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/>
-              </svg>
-              <span class="font-sans text-xs">[Retrato Ana Ester — 680×850px]</span>
-            </div>
           </div>
 
           <!-- Detalhe decorativo -->
-          <div class="absolute -top-3 -right-3 w-24 h-24 border border-primary/20 rounded-sm pointer-events-none" aria-hidden="true"></div>
+          <div class="absolute -bottom-4 -right-4 w-20 h-20 border-2 border-primary/20 rounded-xl pointer-events-none" aria-hidden="true"></div>
         </div>
       </div>
 
@@ -54,15 +49,30 @@ const WA_LINK = 'https://wa.me/5535984566323?text=Ol%C3%A1!%20Vi%20seu%20perfil%
         </h2>
 
         <div class="space-y-4" data-animate>
-          <p class="font-sans text-base text-text-soft leading-relaxed">
-            Eu desenvolvi um acompanhamento que leva em conta de verdade quem você é. Sua rotina, seus objetivos, seu histórico de saúde e até seus exames laboratoriais entram no processo desde a primeira consulta.
-          </p>
-          <p class="font-sans text-base text-text-soft leading-relaxed">
-            O plano alimentar que você recebe é exclusivo e vai sendo ajustado conforme a sua evolução. Em cada encontro, faço uma avaliação do estado nutricional para que você saiba exatamente onde está e para onde estamos caminhando.
-          </p>
-          <p class="font-sans text-base text-text-soft leading-relaxed">
-            Muita gente chega buscando resultado estético e logo percebe que os benefícios vão muito além. Mais disposição, mais saúde e uma relação mais leve com a comida.
-          </p>
+          <div class="flex gap-3">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="text-primary shrink-0 mt-0.5" aria-hidden="true">
+              <polyline points="20 6 9 17 4 12"/>
+            </svg>
+            <p class="font-sans text-base text-text-soft leading-relaxed">
+              Eu desenvolvi um acompanhamento que leva em conta de verdade quem você é. Sua rotina, seus objetivos, seu histórico de saúde e até seus exames laboratoriais entram no processo desde a primeira consulta.
+            </p>
+          </div>
+          <div class="flex gap-3">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="text-primary shrink-0 mt-0.5" aria-hidden="true">
+              <polyline points="20 6 9 17 4 12"/>
+            </svg>
+            <p class="font-sans text-base text-text-soft leading-relaxed">
+              O plano alimentar que você recebe é exclusivo e vai sendo ajustado conforme a sua evolução. Em cada encontro, faço uma avaliação do estado nutricional para que você saiba exatamente onde está e para onde estamos caminhando.
+            </p>
+          </div>
+          <div class="flex gap-3">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="text-primary shrink-0 mt-0.5" aria-hidden="true">
+              <polyline points="20 6 9 17 4 12"/>
+            </svg>
+            <p class="font-sans text-base text-text-soft leading-relaxed">
+              Muita gente chega buscando resultado estético e logo percebe que os benefícios vão muito além. Mais disposição, mais saúde e uma relação mais leve com a comida.
+            </p>
+          </div>
         </div>
 
         <div class="mt-8" data-animate>

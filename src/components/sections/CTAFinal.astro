@@ -1,26 +1,28 @@
 ---
-import Button from '../global/Button.astro';
-
 const WA_LINK = 'https://wa.me/5535984566323?text=Ol%C3%A1!%20Vi%20seu%20perfil%20no%20Google%20e%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es%20sobre%20como%20funciona%20o%20seu%20acompanhamento%20nutricional.';
 ---
 
 <section
   id="cta-final"
-  class="bg-primary section-py"
+  class="relative bg-gradient-to-b from-primary to-primary-dark section-py overflow-hidden"
   aria-labelledby="cta-heading"
 >
-  <div class="container-content text-center">
-    <p class="label-tag text-white/60 mb-5" data-animate>Próximo passo</p>
+  <!-- Decorative elements -->
+  <div class="absolute top-0 right-0 w-96 h-96 bg-white/5 rounded-full -translate-y-1/2 translate-x-1/2" aria-hidden="true"></div>
+  <div class="absolute bottom-0 left-0 w-72 h-72 bg-white/5 rounded-full translate-y-1/2 -translate-x-1/2" aria-hidden="true"></div>
+
+  <div class="container-content text-center relative z-10">
+    <p class="label-tag text-white/70 mb-6" data-animate>Próximo passo</p>
 
     <h2
       id="cta-heading"
-      class="font-serif text-display-lg text-white leading-snug max-w-xl mx-auto mb-5"
+      class="font-serif text-display-xl text-white leading-snug max-w-2xl mx-auto mb-6"
       data-animate
     >
       Pronto para começar de forma certa?
     </h2>
 
-    <p class="font-sans text-base text-white/75 max-w-md mx-auto mb-10" data-animate>
+    <p class="font-sans text-lg text-white/80 max-w-lg mx-auto mb-12" data-animate>
       Me manda uma mensagem agora. Vou te contar como funciona o acompanhamento e como podemos começar juntos.
     </p>
 
@@ -32,7 +34,7 @@ const WA_LINK = 'https://wa.me/5535984566323?text=Ol%C3%A1!%20Vi%20seu%20perfil%
         id="btn-cta-final-wa"
         data-tracking="click-whatsapp-cta-final"
         data-section="cta-final"
-        class="inline-flex items-center justify-center gap-3 bg-white text-primary font-sans font-medium text-base px-8 py-4 rounded-sm hover:bg-white/90 hover:scale-[1.03] transition-all duration-200 shadow-float focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+        class="inline-flex items-center justify-center gap-3 bg-white text-primary font-sans font-semibold text-base px-10 py-5 rounded-lg hover:bg-white hover:shadow-[0_12px_48px_rgba(255,255,255,0.25)] transition-all duration-300 shadow-[0_8px_24px_rgba(255,255,255,0.15)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
       >
         <svg width="20" height="20" viewBox="0 0 24 24" fill="#25D366" aria-hidden="true">
           <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
@@ -42,7 +44,7 @@ const WA_LINK = 'https://wa.me/5535984566323?text=Ol%C3%A1!%20Vi%20seu%20perfil%
       </a>
     </div>
 
-    <p class="font-sans text-sm text-white/45 mt-5" data-animate>
+    <p class="font-sans text-sm text-white/60 mt-8" data-animate>
       Atendimento presencial em Poços de Caldas e online para todo o Brasil
     </p>
   </div>
