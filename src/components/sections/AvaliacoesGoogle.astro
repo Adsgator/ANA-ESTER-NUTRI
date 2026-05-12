@@ -121,13 +121,13 @@ const reviews = [
     >
       <!-- Degrade esquerdo -->
       <div
-        class="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-background to-transparent pointer-events-none z-20"
+        class="absolute left-0 top-0 bottom-0 w-16 lg:w-24 bg-gradient-to-r from-background to-transparent pointer-events-none z-20"
         aria-hidden="true"
       >
       </div>
       <!-- Degrade direito -->
       <div
-        class="absolute right-0 top-0 bottom-0 w-48 bg-gradient-to-l from-background to-transparent pointer-events-none z-20"
+        class="absolute right-0 top-0 bottom-0 w-16 lg:w-48 bg-gradient-to-l from-background to-transparent pointer-events-none z-20"
         aria-hidden="true"
       >
       </div>
@@ -137,8 +137,7 @@ const reviews = [
         {
           [...reviews, ...reviews].map((review, idx) => (
             <div
-              class="flex-shrink-0"
-              style="width: calc(33.333% - 1rem);"
+              class="flex-shrink-0 w-[85vw] lg:w-[calc(33.333%-1rem)]"
               aria-hidden={idx >= reviews.length ? "true" : "false"}
             >
               <ReviewCard

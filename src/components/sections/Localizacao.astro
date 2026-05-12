@@ -51,7 +51,7 @@ const clinicImages = [
 
           <!-- Setas -->
           <button
-            class="absolute left-3 top-1/2 -translate-y-1/2 z-10 w-9 h-9 bg-white/90 hover:bg-white border border-border rounded-full flex items-center justify-center text-text-main shadow-card transition-all focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+            class="absolute left-3 top-1/2 -translate-y-1/2 z-10 w-11 h-11 bg-white/90 hover:bg-white border border-border rounded-full flex items-center justify-center text-text-main shadow-card transition-all focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
             aria-label="Imagem anterior"
             data-carousel-prev
           >
@@ -61,7 +61,7 @@ const clinicImages = [
           </button>
 
           <button
-            class="absolute right-3 top-1/2 -translate-y-1/2 z-10 w-9 h-9 bg-white/90 hover:bg-white border border-border rounded-full flex items-center justify-center text-text-main shadow-card transition-all focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+            class="absolute right-3 top-1/2 -translate-y-1/2 z-10 w-11 h-11 bg-white/90 hover:bg-white border border-border rounded-full flex items-center justify-center text-text-main shadow-card transition-all focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
             aria-label="Próxima imagem"
             data-carousel-next
           >
@@ -75,7 +75,7 @@ const clinicImages = [
             {clinicImages.map((img, i) => (
               <button
                 role="tab"
-                class="h-1.5 rounded-full transition-all duration-300 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+                class="h-1.5 rounded-full transition-all duration-300 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white p-2"
                 aria-label={img.alt}
                 aria-selected={i === 0 ? 'true' : 'false'}
                 data-carousel-dot={i}
@@ -97,8 +97,7 @@ const clinicImages = [
           <p class="label-tag mb-4">Nossa localização</p>
           <h2
             id="localizacao-heading"
-            class="font-serif text-display-lg text-text-main mb-3"
-            style="line-height: 3.2rem;"
+            class="font-serif text-display-lg text-text-main mb-3 leading-tight"
           >
             Ambiente pensado para você
           </h2>
