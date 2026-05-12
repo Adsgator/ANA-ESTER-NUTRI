@@ -1,6 +1,6 @@
 ---
 const WA_LINK =
-  "https://wa.me/5535984566323?text=Ol%C3%A1!%20Vi%20seu%20perfil%20no%20Google%20e%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es%20sobre%20como%20funciona%20o%20seu%20acompanhamento%20nutricional.";
+  "https://wa.me/5535984566323?text=Ol%C3%A1!%20Vi%20seu%20site%20no%20Google%20e%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es%20sobre%20como%20funciona%20o%20seu%20acompanhamento%20nutricional.";
 ---
 
 <!-- Botão CTA fixo no bottom — só mobile, some quando CTA do hero aparecer -->
@@ -33,33 +33,47 @@ const WA_LINK =
     const fixedCTA = document.getElementById("hero-mobile-cta");
     if (!fixedCTA) return;
 
-    // Observa o botão CTA dentro do hero
     const heroCTA = document.querySelector('[data-tracking="click-whatsapp-hero"]');
-    if (!heroCTA) return;
+    const heroSection = document.getElementById("hero-section");
+    if (!heroCTA || !heroSection) return;
 
-    const observer = new IntersectionObserver(
+    let ctaVisible = false;
+
+    const show = () => {
+      fixedCTA.style.opacity = "1";
+      fixedCTA.style.pointerEvents = "auto";
+      fixedCTA.setAttribute("aria-hidden", "false");
+      const link = fixedCTA.querySelector("a");
+      if (link) link.setAttribute("tabindex", "0");
+    };
+
+    const hide = () => {
+      fixedCTA.style.opacity = "0";
+      fixedCTA.style.pointerEvents = "none";
+      fixedCTA.setAttribute("aria-hidden", "true");
+      const link = fixedCTA.querySelector("a");
+      if (link) link.setAttribute("tabindex", "-1");
+    };
+
+    new IntersectionObserver(
       (entries) => {
-        const entry = entries[0];
-        if (entry.isIntersecting) {
-          // CTA do hero visível → esconde o fixo
-          fixedCTA.style.opacity = "0";
-          fixedCTA.style.pointerEvents = "none";
-          fixedCTA.setAttribute("aria-hidden", "true");
-          const link = fixedCTA.querySelector("a");
-          if (link) link.setAttribute("tabindex", "-1");
+        ctaVisible = entries[0].isIntersecting;
+        // CTA do hero visível → some
+        // CTA do hero fora de vista → só mostra se ainda está ACIMA do CTA (scroll antes do hero)
+        if (ctaVisible) {
+          hide();
         } else {
-          // CTA do hero fora de vista → mostra o fixo
-          fixedCTA.style.opacity = "1";
-          fixedCTA.style.pointerEvents = "auto";
-          fixedCTA.setAttribute("aria-hidden", "false");
-          const link = fixedCTA.querySelector("a");
-          if (link) link.setAttribute("tabindex", "0");
+          const ctaRect = heroCTA.getBoundingClientRect();
+          // ctaRect.top > 0 significa que o CTA ainda está abaixo da tela (usuário está acima dele)
+          if (ctaRect.top > 0) {
+            show();
+          } else {
+            hide();
+          }
         }
       },
       { threshold: 0.5 }
-    );
-
-    observer.observe(heroCTA);
+    ).observe(heroCTA);
   })();
 </script>
 

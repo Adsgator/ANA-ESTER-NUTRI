@@ -4,7 +4,7 @@ import Button from "../global/Button.astro";
 import retratoImg from "../../assets/images/img_ana_servicos.webp";
 
 const WA_LINK =
-  "https://wa.me/5535984566323?text=Ol%C3%A1!%20Vi%20seu%20perfil%20no%20Google%20e%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es%20sobre%20como%20funciona%20o%20seu%20acompanhamento%20nutricional.";
+  "https://wa.me/5535984566323?text=Ol%C3%A1!%20Vi%20seu%20site%20no%20Google%20e%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es%20sobre%20como%20funciona%20o%20seu%20acompanhamento%20nutricional.";
 ---
 
 <section
@@ -95,7 +95,7 @@ const WA_LINK =
           </p>
         </blockquote>
 
-        <div data-animate>
+        <div class="flex sm:block" data-animate>
           <Button
             label="Fale agora pelo WhatsApp"
             href={WA_LINK}
@@ -104,6 +104,7 @@ const WA_LINK =
             trackingAction="click-whatsapp-sobre"
             trackingSection="sobre"
             external
+            fullWidth
           />
         </div>
       </div>
