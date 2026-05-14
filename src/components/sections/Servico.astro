@@ -88,19 +88,21 @@ const WA_LINK =
         </h2>
 
         <!-- Imagem mobile — aparece só em mobile, logo após o título -->
-        <div
-          class="block lg:hidden mb-8 rounded-xl overflow-hidden border border-border shadow-[0_12px_40px_rgba(67,111,62,0.15)]"
-          data-animate
-        >
-          <Image
-            src={retratoImg}
-            alt="Ana Ester realizando atendimento nutricional"
-            width={680}
-            height={850}
-            loading="lazy"
-            format="webp"
-            class="w-full h-auto object-cover"
-          />
+        <div class="block lg:hidden mb-8 relative overflow-visible" data-animate>
+          <div class="rounded-xl overflow-hidden border border-border shadow-[0_12px_40px_rgba(67,111,62,0.15)]">
+            <Image
+              src={retratoImg}
+              alt="Ana Ester realizando atendimento nutricional"
+              width={680}
+              height={850}
+              loading="lazy"
+              format="webp"
+              class="w-full h-auto object-cover"
+            />
+          </div>
+          <div class="absolute -top-4 -right-4 w-16 h-16 border-2 border-secondary/30 rounded-xl pointer-events-none" aria-hidden="true" style="animation: float 6s ease-in-out infinite;"></div>
+          <div class="absolute -bottom-4 -left-4 w-12 h-12 border-2 border-primary/25 rounded-full pointer-events-none" aria-hidden="true" style="animation: float 5s ease-in-out infinite; animation-delay: 0.5s;"></div>
+          <div class="absolute top-1/2 -right-6 w-10 h-10 border-2 border-secondary/20 rounded-lg pointer-events-none" aria-hidden="true" style="animation: float 7s ease-in-out infinite; animation-delay: 1s;"></div>
         </div>
 
         <div class="space-y-4" data-animate>
