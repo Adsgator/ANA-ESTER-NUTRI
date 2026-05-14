@@ -6,16 +6,19 @@
 - **Domínio:** anaesternutricionista.com.br
 - **Objetivo:** Landing page de conversão para WhatsApp
 
-## Status atual (2026-05-12)
+## Status atual (2026-05-14)
 - **PROJETO FINALIZADO E PRONTO PARA PRODUÇÃO** ✅
 - Homepage: completa com todas as seções + mobile responsivo
 - Página de Links (/links): banner, avatar, links sociais e CTAs
 - Páginas legais: Termos de Uso + Política de Privacidade (com header integrado)
 - Build: sucesso sem erros, todas as 5 páginas HTML compiladas
 - Breakpoints mobile-first: sm (640px) → md (768px) → lg (1024px) → xl (1280px)
+- Twitter Card tags adicionadas no Layout.astro
+- Sitemap estático em public/sitemap.xml (plugin @astrojs/sitemap incompatível com Astro 4.x)
 
 ## Stack
-- Astro 5 (output: static)
+- Astro 4.x — versão instalada: 4.16.19 (output: static)
+- ⚠️ @astrojs/sitemap é INCOMPATÍVEL com Astro 4.x — o plugin usa o hook `astro:routes:resolved` que só existe no Astro 5+. Solução: sitemap criado manualmente em public/sitemap.xml. Atualizar para Astro 5+ quando houver janela de manutenção.
 - Tailwind CSS v3 (tokens em tailwind.config.js — nunca HEX hardcoded)
 - GSAP + ScrollTrigger (em `<script>` dentro de .astro)
 - Framer Motion (apenas em islands React)

@@ -4,4 +4,4 @@ Disallow: /links
 Disallow: /politica-de-privacidade
 Disallow: /termos-de-uso
 
-Sitemap: https://anaesternutricionista.com.br/sitemap-index.xml
+Sitemap: https://anaesternutricionista.com.br/sitemap.xml

@@ -2,7 +2,7 @@
 import { Image } from 'astro:assets';
 import Button from './Button.astro';
 import MobileMenu from '../islands/MobileMenu';
-import logoImg from '../../assets/images/logomarca_preta_sem_fundo.svg';
+import logoImg from '../../assets/images/logomarca_dourada_sem_fundo_horizontal.svg';
 
 const navLinks = [
   { label: 'A Consulta', href: '#servico' },
@@ -17,16 +17,17 @@ const WA_LINK = 'https://wa.me/5535984566323?text=Ol%C3%A1!%20Vi%20seu%20site%20
 
 <header
   id="site-header"
-  class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 backdrop-blur-md bg-background/95"
+  class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 backdrop-blur-sm"
+  style="background-color: #ffffff3b; border-bottom: solid 1px #f0f0f0;"
   data-header
 >
   <style>
-    [data-header].bg-transparent {
+    [data-header] {
       background-color: #ffffff3b;
       border-bottom: solid 1px #f0f0f0;
     }
   </style>
-  <div class="container-wide">
+    <div class="container-wide">
     <div class="flex items-center justify-between h-16 md:h-20">
 
       <!-- Logo -->
@@ -92,18 +93,6 @@ const WA_LINK = 'https://wa.me/5535984566323?text=Ol%C3%A1!%20Vi%20seu%20site%20
 
     function updateHeader() {
       var scrollY = window.scrollY;
-      var nav = document.querySelector('[aria-label="Navegação principal"]');
-
-      // Fundo ao passar de 80px
-      if (scrollY > 80) {
-        header.classList.add('bg-background/95', 'backdrop-blur-md', 'shadow-[0_1px_0_0_rgba(229,223,214,0.8)]');
-        header.classList.remove('bg-transparent');
-        if (nav) nav.classList.remove('backdrop-blur-sm');
-      } else {
-        header.classList.remove('bg-background/95', 'backdrop-blur-md', 'shadow-[0_1px_0_0_rgba(229,223,214,0.8)]');
-        header.classList.add('bg-transparent');
-        if (nav) nav.classList.add('backdrop-blur-sm');
-      }
 
       // Esconder ao scrollar para baixo, mostrar ao subir
       if (!prefersReduced && scrollY > 300) {
@@ -123,3 +112,4 @@ const WA_LINK = 'https://wa.me/5535984566323?text=Ol%C3%A1!%20Vi%20seu%20site%20
     updateHeader();
   })();
 </script>
+

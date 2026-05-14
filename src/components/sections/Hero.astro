@@ -3,7 +3,6 @@ import { Image } from "astro:assets";
 import Button from "../global/Button.astro";
 import heroImg from "../../assets/images/img_hero_ana.webp";
 import heroMobileImg from "../../assets/images/img_hero_ana_mobile.webp";
-import aparadorImg from "../../assets/images/img_aparador.webp";
 
 const WA_LINK =
   "https://wa.me/5535984566323?text=Ol%C3%A1!%20Vi%20seu%20site%20no%20Google%20e%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es%20sobre%20como%20funciona%20o%20seu%20acompanhamento%20nutricional.";
@@ -28,26 +27,12 @@ const WA_LINK =
     />
   </div>
 
-  <!-- Background com foto da clínica em corte diagonal -->
-  <div class="hidden lg:block absolute inset-0 pointer-events-none" aria-hidden="true">
-    <div class="absolute right-0 top-0 bottom-0 w-1/2 overflow-hidden">
-      <div
-        class="absolute inset-0 relative"
-        style="clip-path: polygon(30% 0, 100% 0, 100% 100%, 0% 100%);"
-      >
-        <Image
-          src={aparadorImg}
-          alt=""
-          width={800}
-          height={600}
-          loading="eager"
-          format="webp"
-          class="w-full h-full object-cover object-center opacity-40 blur-sm"
-        />
-        <!-- Overlay com cor primary no background -->
-        <div class="absolute inset-0 bg-primary/25" aria-hidden="true"></div>
-      </div>
-    </div>
+  <!-- Background com cor sólida #edefef -->
+  <div
+    class="hidden lg:block absolute right-0 top-0 bottom-0 w-1/2 overflow-hidden pointer-events-none"
+    aria-hidden="true"
+    style="clip-path: polygon(30% 0, 100% 0, 100% 100%, 0% 100%); background-color: #edefef;"
+  >
   </div>
 
   <!-- Textura de fundo sutil -->
@@ -74,7 +59,7 @@ const WA_LINK =
           class="font-serif text-display-xl text-text-main mb-6 animate-fade-up"
           style="animation-delay: 80ms; width: 95%; font-weight: 700;"
         >
-          Você não precisa de um plano alimentar sofrido para ter resultados
+          Você não precisa de um plano alimentar restrito para ter resultados
           reais
         </h1>
 
@@ -84,8 +69,8 @@ const WA_LINK =
           style="animation-delay: 160ms"
         >
           Acompanhamento nutricional individualizado, adaptado à sua rotina e ao
-          seu jeito de viver. Sem extremos, sem fórmulas que não funcionam na
-          vida real.
+          seu jeito de viver. Você merece um processo leve para ser vivido e
+          eficiente para transformar.
         </p>
 
         <!-- CTA -->
