@@ -5,3 +5,6 @@ dist/
 .DS_Store
 *.log
 .astro/
+
+# Painel de campanha (dados do cliente — não versionar)
+marketing/painel-campanha.html
