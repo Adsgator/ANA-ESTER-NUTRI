@@ -19,6 +19,7 @@ interface Props {
   canonical?: string;
   noindex?: boolean;
   schema?: object;
+  online?: boolean;
 }
 
 const {
@@ -30,6 +31,7 @@ const {
   canonical = 'https://anaesternutricionista.com.br',
   noindex = false,
   schema,
+  online = false,
 } = Astro.props;
 
 const GTM_ID = 'GTM-T3ZHXBH7';
@@ -135,13 +137,13 @@ const finalSchema = schema || defaultSchema;
     ></iframe>
   </noscript>
 
-  <Header />
+  <Header online={online} />
 
   <main id="main" tabindex="-1">
     <slot />
   </main>
 
-  <Footer />
+  <Footer online={online} />
   <WhatsAppFloat />
 
   <CookieBanner

@@ -5,12 +5,19 @@ import Button from "../global/Button.astro";
 const WA_LINK =
   "https://wa.me/5535984566323?text=Ol%C3%A1!%20Vi%20seu%20site%20no%20Google%20e%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es%20sobre%20como%20funciona%20o%20seu%20acompanhamento%20nutricional.";
 
+interface Props {
+  online?: boolean;
+}
+
+const { online = false } = Astro.props;
+
 const steps = [
   {
     num: "01",
     title: "Primeira consulta",
-    description:
-      "Escuto sua história, sua rotina, seus objetivos e seu histórico de saúde. Faço a avaliação física e nutricional completa.",
+    description: online
+      ? "Escuto sua história, sua rotina, seus objetivos e seu histórico de saúde. Faço a avaliação nutricional completa, por medidas de circunferências e fotos evolutivas."
+      : "Escuto sua história, sua rotina, seus objetivos e seu histórico de saúde. Faço a avaliação física e nutricional completa.",
   },
   {
     num: "02",
@@ -99,47 +106,69 @@ const steps = [
       <div data-animate class="lg:sticky lg:top-24 lg:h-fit">
         <div class="bg-background border border-border rounded p-7">
           <h3 class="font-serif text-display-sm text-text-main mb-6">
-            Como prefere ser atendido?
+            {online ? "Atendimento 100% online" : "Como prefere ser atendido?"}
           </h3>
 
-          <div class="space-y-5">
-            <!-- Presencial -->
-            <div class="flex gap-3">
-              <div
-                class="w-2 h-2 rounded-full bg-primary mt-1.5 shrink-0"
-                aria-hidden="true"
-              >
+          {
+            online ? (
+              <div class="space-y-5">
+                <div class="flex gap-3">
+                  <div
+                    class="w-2 h-2 rounded-full bg-primary mt-1.5 shrink-0"
+                    aria-hidden="true"
+                  />
+                  <div>
+                    <h4 class="font-sans text-sm font-medium text-text-main mb-1">
+                      Online
+                    </h4>
+                    <p class="font-sans text-sm text-text-soft leading-relaxed">
+                      Para qualquer lugar do Brasil, com a comodidade de casa. O
+                      acompanhamento é totalmente personalizado, com avaliação
+                      por medidas de circunferências e fotos evolutivas, e
+                      orientação completa da minha parte.
+                    </p>
+                  </div>
+                </div>
               </div>
-              <div>
-                <h4 class="font-sans text-sm font-medium text-text-main mb-1">
-                  Presencial
-                </h4>
-                <p class="font-sans text-sm text-text-soft leading-relaxed">
-                  Rua Junqueiras, 500, 1° andar, sala 18, Centro, Poços de
-                  Caldas. Com avaliação física completa em cada consulta.
-                </p>
-              </div>
-            </div>
+            ) : (
+              <div class="space-y-5">
+                {/* Presencial */}
+                <div class="flex gap-3">
+                  <div
+                    class="w-2 h-2 rounded-full bg-primary mt-1.5 shrink-0"
+                    aria-hidden="true"
+                  />
+                  <div>
+                    <h4 class="font-sans text-sm font-medium text-text-main mb-1">
+                      Presencial
+                    </h4>
+                    <p class="font-sans text-sm text-text-soft leading-relaxed">
+                      Rua Junqueiras, 500, 1° andar, sala 18, Centro, Poços de
+                      Caldas. Com avaliação física completa em cada consulta.
+                    </p>
+                  </div>
+                </div>
 
-            <!-- Online -->
-            <div class="flex gap-3">
-              <div
-                class="w-2 h-2 rounded-full bg-primary mt-1.5 shrink-0"
-                aria-hidden="true"
-              >
+                {/* Online */}
+                <div class="flex gap-3">
+                  <div
+                    class="w-2 h-2 rounded-full bg-primary mt-1.5 shrink-0"
+                    aria-hidden="true"
+                  />
+                  <div>
+                    <h4 class="font-sans text-sm font-medium text-text-main mb-1">
+                      Online
+                    </h4>
+                    <p class="font-sans text-sm text-text-soft leading-relaxed">
+                      Para quem está fora de Poços de Caldas ou prefere a
+                      comodidade de casa. O acompanhamento é totalmente
+                      personalizado, com orientação completa.
+                    </p>
+                  </div>
+                </div>
               </div>
-              <div>
-                <h4 class="font-sans text-sm font-medium text-text-main mb-1">
-                  Online
-                </h4>
-                <p class="font-sans text-sm text-text-soft leading-relaxed">
-                  Para quem está fora de Poços de Caldas ou prefere a comodidade
-                  de casa. O acompanhamento é totalmente personalizado, com
-                  orientação completa.
-                </p>
-              </div>
-            </div>
-          </div>
+            )
+          }
 
           <!-- Horários -->
           <div class="border-t border-border mt-6 pt-5">

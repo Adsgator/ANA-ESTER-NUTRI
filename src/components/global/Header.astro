@@ -4,11 +4,17 @@ import Button from './Button.astro';
 import MobileMenu from '../islands/MobileMenu';
 import logoImg from '../../assets/images/logomarca_dourada_sem_fundo_horizontal.svg';
 
+interface Props {
+  online?: boolean;
+}
+
+const { online = false } = Astro.props;
+
 const navLinks = [
   { label: 'A Consulta', href: '#servico' },
   { label: 'Como Funciona', href: '#como-funciona' },
   { label: 'A Nutri', href: '#sobre' },
-  { label: 'Localização', href: '#localizacao' },
+  ...(online ? [] : [{ label: 'Localização', href: '#localizacao' }]),
   { label: 'Dúvidas', href: '#faq' },
 ];
 

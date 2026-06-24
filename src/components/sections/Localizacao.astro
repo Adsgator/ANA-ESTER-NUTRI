@@ -5,6 +5,12 @@ import imgEspera from '../../assets/images/img_espera.webp';
 import imgRecepcao from '../../assets/images/img_recepcao.webp';
 import imgSalaConsulta from '../../assets/images/img_sala_consulta.webp';
 
+interface Props {
+  online?: boolean;
+}
+
+const { online = false } = Astro.props;
+
 const clinicImages = [
   { src: imgRecepcao,     alt: 'Recepção da clínica Ana Ester' },
   { src: imgEspera,       alt: 'Sala de espera' },
@@ -20,7 +26,12 @@ const clinicImages = [
 >
   <div class="container-wide">
 
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-end">
+    <div
+      class:list={[
+        "grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16",
+        online ? "items-center" : "items-end",
+      ]}
+    >
 
       <!-- Lado esquerdo: Carousel retrato (desktop only) -->
       <div data-animate class="hidden lg:block">
@@ -94,17 +105,67 @@ const clinicImages = [
 
         <!-- Título e subtítulo -->
         <div>
-          <p class="label-tag mb-4">Nossa localização</p>
+          <p class="label-tag mb-4">{online ? 'Quem vai te atender' : 'Nossa localização'}</p>
           <h2
             id="localizacao-heading"
             class="font-serif text-display-lg text-text-main mb-3"
           >
-            Ambiente pensado para você
+            {online ? 'No online, o encontro é o mesmo' : 'Ambiente pensado para você'}
           </h2>
           <p class="font-sans text-base text-text-soft leading-relaxed">
-            Conheça o espaço onde cada consulta é pensada com cuidado e acolhimento.
+            {
+              online
+                ? 'Sentar com você, ouvir a sua história e entender a sua rotina não depende de estarmos na mesma sala. Pela tela, a gente se encontra do mesmo jeito: com calma, atenção e olho no olho. Você recebe o mesmo cuidado de quem senta na minha frente, com a comodidade de estar onde se sente bem.'
+                : 'Conheça o espaço onde cada consulta é pensada com cuidado e acolhimento.'
+            }
           </p>
         </div>
+
+        {
+          online && (
+            <ul class="flex flex-col gap-4">
+              {[
+                {
+                  title: "Um encontro de perto, mesmo pela tela",
+                  text: "A consulta é por vídeo, com tempo pra te ouvir e entender o que você precisa.",
+                },
+                {
+                  title: "O mesmo acompanhamento do presencial",
+                  text: "Plano alimentar feito pra sua vida, avaliação por medidas e fotos, e ajustes a cada etapa.",
+                },
+                {
+                  title: "Do conforto de onde você estiver",
+                  text: "Em qualquer lugar do Brasil, sem trânsito e sem deslocamento, sem perder o cuidado de perto.",
+                },
+              ].map((item) => (
+                <li class="flex gap-3">
+                  <div class="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
+                    <svg
+                      width="14"
+                      height="14"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      class="text-primary"
+                      aria-hidden="true"
+                    >
+                      <polyline points="20 6 9 17 4 12" />
+                    </svg>
+                  </div>
+                  <div>
+                    <p class="font-sans text-sm font-medium text-text-main leading-snug mb-0.5">
+                      {item.title}
+                    </p>
+                    <p class="font-sans text-sm text-text-soft leading-relaxed">
+                      {item.text}
+                    </p>
+                  </div>
+                </li>
+              ))}
+            </ul>
+          )
+        }
 
         <!-- Carousel mobile — aparece só em mobile, após o texto de apoio -->
         <div class="block lg:hidden relative" data-carousel-mobile>
@@ -163,7 +224,8 @@ const clinicImages = [
           </div>
         </div>
 
-        <!-- Card único: endereço + horários + mapa -->
+        <!-- Card único: endereço + horários + mapa (apenas presencial) -->
+        {!online && (
         <div class="bg-background border border-border rounded-lg shadow-card overflow-hidden">
 
           <!-- Conteúdo interno com padding -->
@@ -233,6 +295,7 @@ const clinicImages = [
           </div>
 
         </div>
+        )}
 
       </div>
     </div>

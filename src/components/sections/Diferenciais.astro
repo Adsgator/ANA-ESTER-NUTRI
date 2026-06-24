@@ -6,6 +6,12 @@ import Button from "../global/Button.astro";
 const WA_LINK =
   "https://wa.me/5535984566323?text=Ol%C3%A1!%20Vi%20seu%20site%20no%20Google%20e%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es%20sobre%20como%20funciona%20o%20seu%20acompanhamento%20nutricional.";
 
+interface Props {
+  online?: boolean;
+}
+
+const { online = false } = Astro.props;
+
 const diferenciais = [
   {
     icon: '<path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/>',
@@ -40,8 +46,9 @@ const diferenciais = [
   {
     icon: '<circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>',
     title: "Flexibilidade de horários e modalidade",
-    description:
-      "Atendo de segunda a sexta das 9h às 18h e aos sábados das 9h30 às 15h30. Presencial em Poços de Caldas ou online, como preferir.",
+    description: online
+      ? "Atendo de segunda a sexta das 9h às 18h e aos sábados das 9h30 às 15h30, online para todo o Brasil — com a comodidade de ser acompanhado de onde você estiver."
+      : "Atendo de segunda a sexta das 9h às 18h e aos sábados das 9h30 às 15h30. Presencial em Poços de Caldas ou online, como preferir.",
   },
 ];
 ---

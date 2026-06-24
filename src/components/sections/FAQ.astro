@@ -1,6 +1,12 @@
 ---
 import SectionHeader from "../global/SectionHeader.astro";
 
+interface Props {
+  online?: boolean;
+}
+
+const { online = false } = Astro.props;
+
 const faqs = [
   {
     q: "O plano alimentar é individualizado?",
@@ -28,7 +34,9 @@ const faqs = [
   },
   {
     q: "Você atende pelo convênio Unimed?",
-    a: "Não, o atendimento é particular. Eu atendo presencialmente em Poços de Caldas e online para todo o Brasil.",
+    a: online
+      ? "Não, o atendimento é particular. Atendo online para todo o Brasil."
+      : "Não, o atendimento é particular. Eu atendo presencialmente em Poços de Caldas e online para todo o Brasil.",
   },
 ];
 ---

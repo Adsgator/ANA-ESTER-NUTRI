@@ -6,6 +6,19 @@ import heroMobileImg from "../../assets/images/img_hero_ana_mobile.webp";
 
 const WA_LINK =
   "https://wa.me/5535984566323?text=Ol%C3%A1!%20Vi%20seu%20site%20no%20Google%20e%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es%20sobre%20como%20funciona%20o%20seu%20acompanhamento%20nutricional.";
+
+interface Props {
+  online?: boolean;
+}
+
+const { online = false } = Astro.props;
+
+const eyebrow = online
+  ? "Nutricionista Online"
+  : "Nutricionista em Poços de Caldas";
+const heroAlt = online
+  ? "Ana Ester, nutricionista online"
+  : "Ana Ester, nutricionista em Poços de Caldas";
 ---
 
 <section
@@ -18,7 +31,7 @@ const WA_LINK =
   <div class="block lg:hidden w-full" aria-hidden="false">
     <Image
       src={heroMobileImg}
-      alt="Ana Ester, nutricionista em Poços de Caldas"
+      alt={heroAlt}
       width={800}
       height={600}
       loading="eager"
@@ -51,7 +64,7 @@ const WA_LINK =
       <div>
         <!-- Eyebrow label -->
         <p class="label-tag mb-5 animate-fade-up" style="animation-delay: 0ms">
-          Nutricionista em Poços de Caldas
+          {eyebrow}
         </p>
 
         <!-- H1 — Dor #1 -->
@@ -100,7 +113,7 @@ const WA_LINK =
         >
           <Image
             src={heroImg}
-            alt="Ana Ester, nutricionista em Poços de Caldas"
+            alt={heroAlt}
             width={500}
             height={667}
             loading="eager"

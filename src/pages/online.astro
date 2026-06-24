@@ -1,0 +1,70 @@
+---
+import Layout from "../components/global/Layout.astro";
+import Hero from "../components/sections/Hero.astro";
+import HeroMobileCTA from "../components/global/HeroMobileCTA.astro";
+import Servico from "../components/sections/Servico.astro";
+import Diferenciais from "../components/sections/Diferenciais.astro";
+import ComoFunciona from "../components/sections/ComoFunciona.astro";
+import Sobre from "../components/sections/Sobre.astro";
+import AvaliacoesGoogle from "../components/sections/AvaliacoesGoogle.astro";
+import Localizacao from "../components/sections/Localizacao.astro";
+import FAQ from "../components/sections/FAQ.astro";
+import CTAFinal from "../components/sections/CTAFinal.astro";
+
+const onlineSchema = {
+  "@context": "https://schema.org",
+  "@type": "Nutritionist",
+  name: "Ana Ester Messias Lima Martins",
+  description:
+    "Acompanhamento nutricional individualizado online para todo o Brasil. Nutrição humanizada, individualizada e com foco na vida real.",
+  url: "https://anaesternutricionista.com.br/online",
+  telephone: "+55-35-98456-6323",
+  email: "anaesternutricionista@gmail.com",
+  sameAs: [
+    "https://www.instagram.com/nutri.anaester",
+    "https://www.tiktok.com/@nutri.anaester",
+    "https://www.facebook.com/share/18c1xh9UEU/",
+  ],
+};
+---
+
+<Layout
+  online
+  title="Nutricionista Online | Ana Ester"
+  description="Acompanhamento nutricional individualizado online para todo o Brasil. Plano alimentar real, sem restrições extremas. Fale comigo agora."
+  keywords="nutricionista online, acompanhamento nutricional online, plano alimentar individualizado, reeducação alimentar, emagrecimento saudável, nutrição humanizada"
+  ogTitle="Ana Ester | Nutricionista Online"
+  ogDescription="Nutrição humanizada, individualizada e com foco na sua vida real. Sem planos genéricos. Atendo online para todo o Brasil."
+  canonical="https://anaesternutricionista.com.br/online"
+  noindex
+  schema={onlineSchema}
+>
+  <Hero online />
+  <HeroMobileCTA />
+  <Diferenciais online />
+  <Servico />
+  <ComoFunciona online />
+  <Sobre />
+  <AvaliacoesGoogle />
+  <Localizacao online />
+  <FAQ online />
+  <CTAFinal />
+</Layout>
+
+<script is:inline>
+  // Rastreamento de cliques WhatsApp
+  document.addEventListener("click", function (e) {
+    var el = e.target.closest("[data-tracking]");
+    if (!el) return;
+    var action = el.getAttribute("data-tracking");
+    var section = el.getAttribute("data-section");
+    if (action && action.includes("whatsapp")) {
+      window.dataLayer.push({
+        event: "contato_wpp",
+        page_type: "online",
+        click_action: action,
+        click_section: section || "unknown",
+      });
+    }
+  });
+</script>
