@@ -33,7 +33,7 @@ const FILE = join(ROOT, "vercel.json");
 const BLOCO =
   '  "redirects": [\n' +
   '    {\n' +
-  '      "source": "/((?!suspenso(.html)?/?|logo-suspenso.svg|favicon.svg).*)",\n' +
+  '      "source": "/((?!suspenso.html|logo-suspenso.svg|favicon.svg).*)",\n' +
   '      "destination": "/suspenso.html",\n' +
   '      "permanent": false\n' +
   '    }\n' +
