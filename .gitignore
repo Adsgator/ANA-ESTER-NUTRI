@@ -8,3 +8,5 @@ dist/
 
 # Painel de campanha (dados do cliente — não versionar)
 marketing/painel-campanha.html
+
+.vercel
